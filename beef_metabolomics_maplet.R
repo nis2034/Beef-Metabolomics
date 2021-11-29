@@ -3,7 +3,7 @@
 # AUTHOR:  Nisha Stephan
 # PURPOSE: reading Biocrates p500 data and processing it in autonomics and/or maplet
 #          for maplet see here: https://github.com/krumsieklab/maplet/blob/main/README.md
-# MODIF:   
+# MODIF:  Setup a git project for the development on 29/11/2021
 #
 
 # 
