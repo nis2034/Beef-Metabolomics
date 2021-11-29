@@ -1,0 +1,304 @@
+---
+title: beef_metabolomics_maplet_v1_cmerge_buffer_removed
+output:
+  html_document:
+    toc: true
+    toc_float: TRUE
+    
+params:
+  D: NA
+---
+
+```{r echo=F}
+# default chunk options
+knitr::opts_chunk$set(warning=F,echo=F,results='hide',message=F)
+```
+
+```{r}
+# load libraries
+library(maplet)
+
+```
+
+```{r}
+r <- metadata(D)$results
+```
+
+# Output
+# Data-Cleanup
+## Missingness
+Missigness before removing buffer
+
+### plots_missingness
+*Log text:*<br/>missingness plots, missing values: 14853 out of 113400 (13.10%)
+
+```{r}
+r[[4]]$output
+```
+
+
+Missingness after removing buffer
+
+### plots_missingness
+*Log text:*<br/>missingness plots, missing values: 10227 out of 90720 (11.27%)
+
+```{r}
+r[[6]]$output
+```
+
+
+### pre_filter_missingness
+*Log text:*<br/>features filtered, 50.00%, 39 of 630 removed
+
+
+Missingness after filtering metabolites with more than 50% missing values per group
+
+### plots_missingness
+*Log text:*<br/>missingness plots, missing values: 6331 out of 85104 (7.44%)
+
+```{r}
+r[[9]]$output
+```
+
+
+### plots_sample_boxplot
+*Log text:*<br/>sample boxplot, aes: color=Buffer
+
+```{r}
+r[[10]]$output
+```
+
+
+### plots_sample_boxplot
+*Log text:*<br/>sample boxplot, aes: color=tissue
+
+```{r}
+r[[11]]$output
+```
+
+
+### pre_norm_quot
+*Log text:*<br/>quotient normalization based on 36 reference samples and 511 variables: ~
+
+*Log text:*<br/>quotient normalization based on 36 reference samples and 511 variables: Buffer == "80% Meth + 20% H2O"
+
+
+### plots_dilution_factor
+*Log text:*<br/>dilution factor plot, 'Buffer'
+
+```{r}
+r[[13]]$output
+```
+
+
+### plots_sample_boxplot
+*Log text:*<br/>sample boxplot, aes: color=Buffer
+
+```{r}
+r[[14]]$output
+```
+
+
+### pre_trans_log
+*Log text:*<br/>log2.000000
+
+
+### plots_sample_boxplot
+*Log text:*<br/>sample boxplot, aes: color=Buffer
+
+```{r}
+r[[16]]$output
+```
+
+
+### pre_outlier_detection_univariate
+*Log text:*<br/>flagged 0 univariate outliers
+
+
+### reporting_data
+*Log text:*<br/>Dataset info: 144 samples, 591 features; 25 sample annotation fields, 10 feature annotation fields
+
+### write_se_xls
+*Log text:*<br/>Data exported to Excel file 'PreprocessedData.xlsx'
+
+
+# Global Statistics
+## plots_umap
+*Log text:*<br/>UMAP, label_col: , aes: color=Buffer, size=2.5
+
+```{r}
+r[[21]]$output
+```
+
+
+## plots_heatmap
+*Log text:*<br/>Heatmap of assay data.
+
+```{r}
+r[[22]]$output
+```
+
+
+## plots_umap
+*Log text:*<br/>UMAP, label_col: , aes: color=tissue, size=2.5
+
+```{r}
+r[[23]]$output
+```
+
+
+## plots_heatmap
+*Log text:*<br/>Heatmap of assay data.
+
+```{r}
+r[[24]]$output
+```
+
+
+## plots_pca
+*Log text:*<br/>PCA, scores, label_col: , aes: color=Buffer, shape=tissue, size=2.5
+
+```{r}
+r[[25]]$output
+```
+
+
+## Buffer analysis
+### stats_univ_lm
+*Log text:*<br/>univariate lm, ~Buffer
+
+```{r results='asis'}
+# extract result table
+df<-r[[27]]$output$table
+# add feature names
+rd <- rowData(D)
+df <- cbind(name=as.data.frame(rd)$name[match(df$var, rownames(rd))], df) %>%
+  dplyr::arrange(p.value)
+# subset large data frames
+if(nrow(df) > 1000) df <- df[1:1000, ]
+# output
+DT::datatable(df, rownames = FALSE, filter = "top", options = list(pageLength = 20, lengthMenu = c(10*(2^(0:3)), nrow(df)), autoWidth = TRUE, width = 1200, dom = "Bitlrp", buttons = c("copy", "csv", "excel", "pdf", "print")), class = "cell-border stripe", extensions = "Buttons")  %>% DT::formatStyle(columns = c(1:ncol(df)), fontSize = "80%", target= "row", lineHeight="80%")
+```
+
+
+### post_multtest
+*Log text:*<br/>Multiple testing correction of 'Buffer met' using 'BH'
+
+
+### reporting_stats
+*Log text:*<br/>'Buffer met' info
+
+Samples:
+50% Meth + 50% H2O: 36, 50% Meth + 50% PBS: 36, 80% Meth + 20% H2O: 36, 80% Meth + 20% PBS: 36 /// features: p.adj < 0.05, 125 of 591
+
+### write_stats
+*Log text:*<br/>Exported sheets 'Buffer met' to Excel file 'BufferAnalysis.xlsx'
+
+
+### plots_pval_hist
+*Log text:*<br/>P-value histograms for Buffer met
+
+```{r}
+r[[31]]$output
+```
+
+
+### plots_box_scatter
+*Log text:*<br/>Feature 
+
+```{r ,fig.width=7.000000,fig.height=141.346528}
+r[[32]]$output
+```
+
+
+## Tissue analysis
+### stats_univ_lm
+*Log text:*<br/>univariate lm, ~tissue
+
+```{r results='asis'}
+# extract result table
+df<-r[[34]]$output$table
+# add feature names
+rd <- rowData(D)
+df <- cbind(name=as.data.frame(rd)$name[match(df$var, rownames(rd))], df) %>%
+  dplyr::arrange(p.value)
+# subset large data frames
+if(nrow(df) > 1000) df <- df[1:1000, ]
+# output
+DT::datatable(df, rownames = FALSE, filter = "top", options = list(pageLength = 20, lengthMenu = c(10*(2^(0:3)), nrow(df)), autoWidth = TRUE, width = 1200, dom = "Bitlrp", buttons = c("copy", "csv", "excel", "pdf", "print")), class = "cell-border stripe", extensions = "Buttons")  %>% DT::formatStyle(columns = c(1:ncol(df)), fontSize = "80%", target= "row", lineHeight="80%")
+```
+
+
+### post_multtest
+*Log text:*<br/>Multiple testing correction of 'Tissue met' using 'BH'
+
+
+### reporting_stats
+*Log text:*<br/>'Tissue met' info
+
+Samples:
+fat: 48, liver: 48, muscle: 48 /// features: p.adj < 0.05, 360 of 591
+
+### write_stats
+*Log text:*<br/>Exported sheets 'Buffer met, Tissue met' to Excel file 'TissueAnalysis.xlsx'
+
+
+### plots_pval_hist
+*Log text:*<br/>P-value histograms for Tissue met
+
+```{r}
+r[[38]]$output
+```
+
+
+## Multiple Statistics Heatmap
+### plots_multstats_heatmap
+*Log text:*<br/>Pheatmap of stat results.
+ Colors represent (sign(statistic) * -log10(p.adj)))
+
+```{r}
+r[[40]]$output
+```
+
+
+## Result Comparison
+### plots_stats_compare
+*Log text:*<br/>comparison plot between 'Buffer met' and 'Tissue met'
+
+```{r}
+r[[42]]$output
+```
+
+
+## Partial Correlation Network
+### stats_cormat_genenet
+*Log text:*<br/>GeneNet partial correlation
+
+WARNING: Large data frame (174345 rows). Displaying first
+1000 rows.
+```{r results='asis'}
+# extract result table
+df<-r[[44]]$output$table
+# add feature names
+rd <- rowData(D)
+df <- cbind(name=as.data.frame(rd)$name[match(df$var, rownames(rd))], df) %>%
+  dplyr::arrange(p.value)
+# subset large data frames
+if(nrow(df) > 1000) df <- df[1:1000, ]
+# output
+DT::datatable(df, rownames = FALSE, filter = "top", options = list(pageLength = 20, lengthMenu = c(10*(2^(0:3)), nrow(df)), autoWidth = TRUE, width = 1200, dom = "Bitlrp", buttons = c("copy", "csv", "excel", "pdf", "print")), class = "cell-border stripe", extensions = "Buttons")  %>% DT::formatStyle(columns = c(1:ncol(df)), fontSize = "80%", target= "row", lineHeight="80%")
+```
+
+
+### post_multtest
+*Log text:*<br/>Multiple testing correction of 'GGM' using 'BH'
+
+
+### plots_net
+*Log text:*<br/>Correlation Network, aes: GGM
+
+```{r}
+r[[46]]$output
+```
+
+

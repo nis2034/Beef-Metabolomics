@@ -1,0 +1,862 @@
+Start logging to beef_metabolomics_maplet_v1_cmerge_buffer_removed.log 
+[1] "2021-11-29 07:16:18 UTC"
+-/                                                                                                                                                                           File format identifier is: MetIDQ-Oxygen-DB110-3005 Concentration [µM] NoNormalization 
+-/                                                                                                                                                                           -/                                                                                                                                                                           Assay data for 87 samples and 524 traits read in 
+There are 20 parameters describing the samples:
+ [1] "Plate Bar Code"         "Sample Bar Code"        "Sample Type"            "Sample Identification"  "Sample Description"     "Submission Name"       
+ [7] "Collection Date"        "Species"                "Material"               "OP"                     "Org. Info"              "Plate Production No."  
+[13] "Additional Information" "Tube label"             "Plate Note"             "Well Position"          "Sample Volume"          "Run Number"            
+[19] "Injection Number"       "Measurement Time"      
+There are 15 parameters describing the traits:
+ [1] "feature_id"                          "Protocol"                            "Signal"                              "Class"                              
+ [5] "Q1"                                  "Q3"                                  "LOD (calc.) 1020890241/1 [µM]"       "Internal Standard"                  
+ [9] "RRF 1020890241-1"                    "Curve Type 1020890241-1"             "Weighting Type 1020890241-1"         "ULOQ 1020890241-1 [µM]"             
+[13] "LLOQ 1020890241-1 [µM]"              "OP 1020890241-1"                     "Analyte Classification 1020890241-1"
+Returnig only sample data
+Returning data for 524 traits and 60 samples
+-/                                                                                                                                                                           File format identifier is: MetIDQ-Oxygen-DB110-3005 Concentration [µM] NoNormalization 
+-/                                                                                                                                                                           -/                                                                                                                                                                           Assay data for 194 samples and 106 traits read in 
+There are 20 parameters describing the samples:
+ [1] "Plate Bar Code"         "Sample Bar Code"        "Sample Type"            "Sample Identification"  "Sample Description"     "Submission Name"       
+ [7] "Collection Date"        "Species"                "Material"               "OP"                     "Org. Info"              "Plate Production No."  
+[13] "Additional Information" "Tube label"             "Plate Note"             "Well Position"          "Sample Volume"          "Run Number"            
+[19] "Injection Number"       "Measurement Time"      
+There are 31 parameters describing the traits:
+ [1] "feature_id"                                                 "Protocol"                                                  
+ [3] "Signal"                                                     "Class"                                                     
+ [5] "Q1"                                                         "Q3"                                                        
+ [7] "LOD (calc.) 1020875591/1 [µM]"                              "LOD (calc.) 1020875591/1[zero samples] [µM]"               
+ [9] "LOD (calc.) 1020875591/1[Liver extract] [µM]"               "LOD (calc.) 1020875591/1[Buffer] [µM]"                     
+[11] "LOD (calc.) 1020875591/1[methanol based zero samples] [µM]" "LOD (calc.) 1020875591/2 [µM]"                             
+[13] "LOD (calc.) 1020875591/2[zero samples] [µM]"                "LOD (calc.) 1020875591/2[Liver extract] [µM]"              
+[15] "LOD (calc.) 1020875591/2[Buffer] [µM]"                      "LOD (calc.) 1020875591/2[methanol based zero samples] [µM]"
+[17] "Internal Standard"                                          "RRF 1020875591-2"                                          
+[19] "RRF 1020875591-1"                                           "Curve Type 1020875591-2"                                   
+[21] "Curve Type 1020875591-1"                                    "Weighting Type 1020875591-2"                               
+[23] "Weighting Type 1020875591-1"                                "ULOQ 1020875591-2 [µM]"                                    
+[25] "ULOQ 1020875591-1 [µM]"                                     "LLOQ 1020875591-2 [µM]"                                    
+[27] "LLOQ 1020875591-1 [µM]"                                     "OP 1020875591-2"                                           
+[29] "OP 1020875591-1"                                            "Analyte Classification 1020875591-2"                       
+[31] "Analyte Classification 1020875591-1"                       
+Returnig only sample data
+Returning data for 106 traits and 120 samples
+WARNING: duplicated sample ids
+ [1] "1020873061" "1020873105" "1020872212" "1020871320" "1020872178" "1020872299" "1020871285" "1020871164" "1020873022" "1020873143" "1020872251" "1020872208" "1020871315"
+[14] "1020871678" "1020873139" "1020871271" "1020871150" "1020873094" "1020871630" "1020872246" "1020871111" "1020871232" "1020871198" "1020873056" "1020872163" "1020872284"
+[27] "1020871625" "1020871349" "1020871228" "1020872314" "1020871183" "1020873041" "1020872270" "1020873080" "1020872159" "1020871663" "1020871301" "1020871266" "1020871145"
+[40] "1020873124" "1020872231" "1020872197" "1020871659" "1020872227" "1020873075" "1020871290" "1020872182" "1020871179" "1020871334" "1020871213" "1020872300" "1020873037"
+[53] "1020871131" "1020872265" "1020873110" "1020871251" "1020871209" "1020871126" "1020871247" "1020871644"
+special treatment to use taurine from run 2
+merging two SE by row:
+D1:
+class: SummarizedExperiment 
+dim: 524 60 
+metadata(0):
+assays(1): exprs
+rownames(524): C0 C2 ... TG(22:6_34:2) TG(22:6_34:3)
+rowData names(17): feature_id Protocol ... name BIOCHEMICAL
+colnames(60): 1020873061 1020873105 ... 1020871247 1020871644
+colData names(22): Plate Bar Code Sample Bar Code ... sample_id SAMPLE_NAME
+D2:
+class: SummarizedExperiment 
+dim: 106 60 
+metadata(0):
+assays(1): exprs
+rownames(106): Trigonelline TMAO ... Xanthine Choline
+rowData names(33): feature_id Protocol ... name BIOCHEMICAL
+colnames(60): 1020873061 1020873105 ... 1020871247 1020871644
+colData names(22): Plate Bar Code Sample Bar Code ... sample_id SAMPLE_NAME
+deleting variable with non-matching values in D1 and D2: Plate Bar Code 
+deleting variable with non-matching values in D1 and D2: Collection Date 
+deleting variable with non-matching values in D1 and D2: OP 
+deleting variable with non-matching values in D1 and D2: Plate Note 
+deleting variable with non-matching values in D1 and D2: Injection Number 
+deleting variable with non-matching values in D1 and D2: Measurement Time 
+deleting row variable that is only in D1: LOD (calc.) 1020890241/1 [µM] 
+deleting row variable that is only in D1: RRF 1020890241-1 
+deleting row variable that is only in D1: Curve Type 1020890241-1 
+deleting row variable that is only in D1: Weighting Type 1020890241-1 
+deleting row variable that is only in D1: ULOQ 1020890241-1 [µM] 
+deleting row variable that is only in D1: LLOQ 1020890241-1 [µM] 
+deleting row variable that is only in D1: OP 1020890241-1 
+deleting row variable that is only in D1: Analyte Classification 1020890241-1 
+deleting row variable that is only in D2: LOD (calc.) 1020875591/1 [µM] 
+deleting row variable that is only in D2: LOD (calc.) 1020875591/1[zero samples] [µM] 
+deleting row variable that is only in D2: LOD (calc.) 1020875591/1[Liver extract] [µM] 
+deleting row variable that is only in D2: LOD (calc.) 1020875591/1[Buffer] [µM] 
+deleting row variable that is only in D2: LOD (calc.) 1020875591/1[methanol based zero samples] [µM] 
+deleting row variable that is only in D2: LOD (calc.) 1020875591/2 [µM] 
+deleting row variable that is only in D2: LOD (calc.) 1020875591/2[zero samples] [µM] 
+deleting row variable that is only in D2: LOD (calc.) 1020875591/2[Liver extract] [µM] 
+deleting row variable that is only in D2: LOD (calc.) 1020875591/2[Buffer] [µM] 
+deleting row variable that is only in D2: LOD (calc.) 1020875591/2[methanol based zero samples] [µM] 
+deleting row variable that is only in D2: RRF 1020875591-2 
+deleting row variable that is only in D2: RRF 1020875591-1 
+deleting row variable that is only in D2: Curve Type 1020875591-2 
+deleting row variable that is only in D2: Curve Type 1020875591-1 
+deleting row variable that is only in D2: Weighting Type 1020875591-2 
+deleting row variable that is only in D2: Weighting Type 1020875591-1 
+deleting row variable that is only in D2: ULOQ 1020875591-2 [µM] 
+deleting row variable that is only in D2: ULOQ 1020875591-1 [µM] 
+deleting row variable that is only in D2: LLOQ 1020875591-2 [µM] 
+deleting row variable that is only in D2: LLOQ 1020875591-1 [µM] 
+deleting row variable that is only in D2: OP 1020875591-2 
+deleting row variable that is only in D2: OP 1020875591-1 
+deleting row variable that is only in D2: Analyte Classification 1020875591-2 
+deleting row variable that is only in D2: Analyte Classification 1020875591-1 
+-/                                                                                                                                                                           File format identifier is: MetIDQ-Oxygen-DB110-3005 Concentration [µM] NoNormalization 
+-/                                                                                                                                                                           -/                                                                                                                                                                           Assay data for 84 samples and 524 traits read in 
+There are 20 parameters describing the samples:
+ [1] "Plate Bar Code"         "Sample Bar Code"        "Sample Type"            "Sample Identification"  "Sample Description"     "Submission Name"       
+ [7] "Collection Date"        "Species"                "Material"               "OP"                     "Org. Info"              "Plate Production No."  
+[13] "Additional Information" "Tube label"             "Plate Note"             "Well Position"          "Sample Volume"          "Run Number"            
+[19] "Injection Number"       "Measurement Time"      
+There are 15 parameters describing the traits:
+ [1] "feature_id"                          "Protocol"                            "Signal"                              "Class"                              
+ [5] "Q1"                                  "Q3"                                  "LOD (calc.) 1020875641/3 [µM]"       "Internal Standard"                  
+ [9] "RRF 1020875641-3"                    "Curve Type 1020875641-3"             "Weighting Type 1020875641-3"         "ULOQ 1020875641-3 [µM]"             
+[13] "LLOQ 1020875641-3 [µM]"              "OP 1020875641-3"                     "Analyte Classification 1020875641-3"
+Returnig only sample data
+Returning data for 524 traits and 60 samples
+-/                                                                                                                                                                           File format identifier is: MetIDQ-Oxygen-DB110-3005 Concentration [µM] NoNormalization 
+-/                                                                                                                                                                           -/                                                                                                                                                                           Assay data for 180 samples and 106 traits read in 
+There are 20 parameters describing the samples:
+ [1] "Plate Bar Code"         "Sample Bar Code"        "Sample Type"            "Sample Identification"  "Sample Description"     "Submission Name"       
+ [7] "Collection Date"        "Species"                "Material"               "OP"                     "Org. Info"              "Plate Production No."  
+[13] "Additional Information" "Tube label"             "Plate Note"             "Well Position"          "Sample Volume"          "Run Number"            
+[19] "Injection Number"       "Measurement Time"      
+There are 31 parameters describing the traits:
+ [1] "feature_id"                          "Protocol"                            "Signal"                              "Class"                              
+ [5] "Q1"                                  "Q3"                                  "LOD (from OP) 1020875572/1 [µM]"     "LOD (from OP) 1020875572/2 [µM]"    
+ [9] "Internal Standard"                   "RRF 1020875572-1"                    "RRF 1020875572-2"                    "Curve Type 1020875572-1"            
+[13] "Curve Type 1020875572-2"             "Weighting Type 1020875572-1"         "Weighting Type 1020875572-2"         "ULOQ 1020875572-1 [µM]"             
+[17] "ULOQ 1020875572-2 [µM]"              "LLOQ 1020875572-1 [µM]"              "LLOQ 1020875572-2 [µM]"              "OP 1020875572-1"                    
+[21] "OP 1020875572-2"                     "Analyte Classification 1020875572-1" "Analyte Classification 1020875572-2" "2021.01.13 14:38:40"                
+[25] "2021.01.13 20:38:10"                 "2021.01.13 23:35:21"                 "2021.01.13 16:23:10"                 "2021.01.13 23:22:15"                
+[29] "2021.01.13 23:28:48"                 "2021.01.13 18:20:49"                 "2021.01.13 16:16:39"                
+Returnig only sample data
+Returning data for 106 traits and 120 samples
+WARNING: duplicated sample ids
+ [1] "1020869040" "1020871081" "1020872178" "1020868909" "1020872130" "1020872208" "1020871799" "1020868951" "1020871678" "1020871712" "1020868913" "1020871833" "1020868990"
+[14] "1020869001" "1020871916" "1020869073" "1020871630" "1020871751" "1020871871" "1020871077" "1020872163" "1020871867" "1020871625" "1020871746" "1020871901" "1020868947"
+[27] "1020871107" "1020868985" "1020869035" "1020871829" "1020871062" "1020872159" "1020871663" "1020871784" "1020868928" "1020872197" "1020871814" "1020868932" "1020868898"
+[40] "1020871659" "1020871731" "1020871852" "1020869069" "1020868971" "1020869021" "1020872182" "1020872144" "1020871891" "1020871770" "1020871096" "1020868966" "1020871727"
+[53] "1020871848" "1020871800" "1020871921" "1020871886" "1020871644" "1020871765" "1020869016" "1020869054"
+special treatment to use taurine from run 2
+merging two SE by row:
+D1:
+class: SummarizedExperiment 
+dim: 524 60 
+metadata(0):
+assays(1): exprs
+rownames(524): C0 C2 ... TG(22:6_34:2) TG(22:6_34:3)
+rowData names(17): feature_id Protocol ... name BIOCHEMICAL
+colnames(60): 1020869040 1020871081 ... 1020869016 1020869054
+colData names(22): Plate Bar Code Sample Bar Code ... sample_id SAMPLE_NAME
+D2:
+class: SummarizedExperiment 
+dim: 106 60 
+metadata(0):
+assays(1): exprs
+rownames(106): Trigonelline TMAO ... Xanthine Choline
+rowData names(33): feature_id Protocol ... name BIOCHEMICAL
+colnames(60): 1020869040 1020871081 ... 1020869016 1020869054
+colData names(22): Plate Bar Code Sample Bar Code ... sample_id SAMPLE_NAME
+deleting variable with non-matching values in D1 and D2: Plate Bar Code 
+deleting variable with non-matching values in D1 and D2: Collection Date 
+deleting variable with non-matching values in D1 and D2: OP 
+deleting variable with non-matching values in D1 and D2: Plate Note 
+deleting variable with non-matching values in D1 and D2: Run Number 
+deleting variable with non-matching values in D1 and D2: Injection Number 
+deleting variable with non-matching values in D1 and D2: Measurement Time 
+deleting row variable that is only in D1: LOD (calc.) 1020875641/3 [µM] 
+deleting row variable that is only in D1: RRF 1020875641-3 
+deleting row variable that is only in D1: Curve Type 1020875641-3 
+deleting row variable that is only in D1: Weighting Type 1020875641-3 
+deleting row variable that is only in D1: ULOQ 1020875641-3 [µM] 
+deleting row variable that is only in D1: LLOQ 1020875641-3 [µM] 
+deleting row variable that is only in D1: OP 1020875641-3 
+deleting row variable that is only in D1: Analyte Classification 1020875641-3 
+deleting row variable that is only in D2: LOD (from OP) 1020875572/1 [µM] 
+deleting row variable that is only in D2: LOD (from OP) 1020875572/2 [µM] 
+deleting row variable that is only in D2: RRF 1020875572-1 
+deleting row variable that is only in D2: RRF 1020875572-2 
+deleting row variable that is only in D2: Curve Type 1020875572-1 
+deleting row variable that is only in D2: Curve Type 1020875572-2 
+deleting row variable that is only in D2: Weighting Type 1020875572-1 
+deleting row variable that is only in D2: Weighting Type 1020875572-2 
+deleting row variable that is only in D2: ULOQ 1020875572-1 [µM] 
+deleting row variable that is only in D2: ULOQ 1020875572-2 [µM] 
+deleting row variable that is only in D2: LLOQ 1020875572-1 [µM] 
+deleting row variable that is only in D2: LLOQ 1020875572-2 [µM] 
+deleting row variable that is only in D2: OP 1020875572-1 
+deleting row variable that is only in D2: OP 1020875572-2 
+deleting row variable that is only in D2: Analyte Classification 1020875572-1 
+deleting row variable that is only in D2: Analyte Classification 1020875572-2 
+deleting row variable that is only in D2: 2021.01.13 14:38:40 
+deleting row variable that is only in D2: 2021.01.13 20:38:10 
+deleting row variable that is only in D2: 2021.01.13 23:35:21 
+deleting row variable that is only in D2: 2021.01.13 16:23:10 
+deleting row variable that is only in D2: 2021.01.13 23:22:15 
+deleting row variable that is only in D2: 2021.01.13 23:28:48 
+deleting row variable that is only in D2: 2021.01.13 18:20:49 
+deleting row variable that is only in D2: 2021.01.13 16:16:39 
+-/                                                                                                                                                                           File format identifier is: MetIDQ-Oxygen-DB110-3005 Concentration [µM] NoNormalization 
+-/                                                                                                                                                                           -/                                                                                                                                                                           Assay data for 86 samples and 524 traits read in 
+There are 20 parameters describing the samples:
+ [1] "Plate Bar Code"         "Sample Bar Code"        "Sample Type"            "Sample Identification"  "Sample Description"     "Submission Name"       
+ [7] "Collection Date"        "Species"                "Material"               "OP"                     "Org. Info"              "Plate Production No."  
+[13] "Additional Information" "Tube label"             "Plate Note"             "Well Position"          "Sample Volume"          "Run Number"            
+[19] "Injection Number"       "Measurement Time"      
+There are 15 parameters describing the traits:
+ [1] "feature_id"                          "Protocol"                            "Signal"                              "Class"                              
+ [5] "Q1"                                  "Q3"                                  "LOD (calc.) 1020887229/1 [µM]"       "Internal Standard"                  
+ [9] "RRF 1020887229-1"                    "Curve Type 1020887229-1"             "Weighting Type 1020887229-1"         "ULOQ 1020887229-1 [µM]"             
+[13] "LLOQ 1020887229-1 [µM]"              "OP 1020887229-1"                     "Analyte Classification 1020887229-1"
+Returnig only sample data
+Returning data for 524 traits and 60 samples
+-/                                                                                                                                                                           File format identifier is: MetIDQ-Oxygen-DB110-3005 Concentration [µM] NoNormalization 
+-/                                                                                                                                                                           -/                                                                                                                                                                           Assay data for 97 samples and 106 traits read in 
+There are 20 parameters describing the samples:
+ [1] "Plate Bar Code"         "Sample Bar Code"        "Sample Type"            "Sample Identification"  "Sample Description"     "Submission Name"       
+ [7] "Collection Date"        "Species"                "Material"               "OP"                     "Org. Info"              "Plate Production No."  
+[13] "Additional Information" "Tube label"             "Plate Note"             "Well Position"          "Sample Volume"          "Run Number"            
+[19] "Injection Number"       "Measurement Time"      
+There are 15 parameters describing the traits:
+ [1] "feature_id"                          "Protocol"                            "Signal"                              "Class"                              
+ [5] "Q1"                                  "Q3"                                  "LOD (calc.) 1020875602/1 [µM]"       "Internal Standard"                  
+ [9] "RRF 1020875602-1"                    "Curve Type 1020875602-1"             "Weighting Type 1020875602-1"         "ULOQ 1020875602-1 [µM]"             
+[13] "LLOQ 1020875602-1 [µM]"              "OP 1020875602-1"                     "Analyte Classification 1020875602-1"
+Returnig only sample data
+Returning data for 106 traits and 60 samples
+merging two SE by row:
+D1:
+class: SummarizedExperiment 
+dim: 524 60 
+metadata(0):
+assays(1): exprs
+rownames(524): C0 C2 ... TG(22:6_34:2) TG(22:6_34:3)
+rowData names(17): feature_id Protocol ... name BIOCHEMICAL
+colnames(60): 1020873181 1020873226 ... 1020871402 1020871644
+colData names(22): Plate Bar Code Sample Bar Code ... sample_id SAMPLE_NAME
+D2:
+class: SummarizedExperiment 
+dim: 106 60 
+metadata(0):
+assays(1): exprs
+rownames(106): Trigonelline TMAO ... Xanthine Choline
+rowData names(17): feature_id Protocol ... name BIOCHEMICAL
+colnames(60): 1020873181 1020873226 ... 1020871402 1020871644
+colData names(22): Plate Bar Code Sample Bar Code ... sample_id SAMPLE_NAME
+deleting variable with non-matching values in D1 and D2: Plate Bar Code 
+deleting variable with non-matching values in D1 and D2: Collection Date 
+deleting variable with non-matching values in D1 and D2: OP 
+deleting variable with non-matching values in D1 and D2: Plate Note 
+deleting variable with non-matching values in D1 and D2: Injection Number 
+deleting variable with non-matching values in D1 and D2: Measurement Time 
+deleting row variable that is only in D1: LOD (calc.) 1020887229/1 [µM] 
+deleting row variable that is only in D1: RRF 1020887229-1 
+deleting row variable that is only in D1: Curve Type 1020887229-1 
+deleting row variable that is only in D1: Weighting Type 1020887229-1 
+deleting row variable that is only in D1: ULOQ 1020887229-1 [µM] 
+deleting row variable that is only in D1: LLOQ 1020887229-1 [µM] 
+deleting row variable that is only in D1: OP 1020887229-1 
+deleting row variable that is only in D1: Analyte Classification 1020887229-1 
+deleting row variable that is only in D2: LOD (calc.) 1020875602/1 [µM] 
+deleting row variable that is only in D2: RRF 1020875602-1 
+deleting row variable that is only in D2: Curve Type 1020875602-1 
+deleting row variable that is only in D2: Weighting Type 1020875602-1 
+deleting row variable that is only in D2: ULOQ 1020875602-1 [µM] 
+deleting row variable that is only in D2: LLOQ 1020875602-1 [µM] 
+deleting row variable that is only in D2: OP 1020875602-1 
+deleting row variable that is only in D2: Analyte Classification 1020875602-1 
+merging two SE by column:
+D1:
+class: SummarizedExperiment 
+dim: 630 60 
+metadata(0):
+assays(1): exprs
+rownames(630): C0 C2 ... Xanthine Choline
+rowData names(11): feature_id Protocol ... original_dataset Method
+colnames(60): CH A1-B.1 CH A1-B.2 ... R2.1 R3.1
+colData names(15): Sample Bar Code Sample Type ... sample_id SAMPLE_NAME
+D2:
+class: SummarizedExperiment 
+dim: 630 60 
+metadata(0):
+assays(1): exprs
+rownames(630): C0 C2 ... Xanthine Choline
+rowData names(11): feature_id Protocol ... original_dataset Method
+colnames(60): CH A1-F.1 CH A1-F.2 ... R2.1 R3.1
+colData names(16): Sample Bar Code Sample Type ... sample_id SAMPLE_NAME
+deleting variable with non-matching values in D1 and D2: Q1 
+deleting variable with non-matching values in D1 and D2: Q3 
+deleting col variable that is only in D2: Run Number 
+merging two SE by column:
+D1:
+class: SummarizedExperiment 
+dim: 630 60 
+metadata(0):
+assays(1): exprs
+rownames(630): C0 C2 ... Xanthine Choline
+rowData names(11): feature_id Protocol ... original_dataset Method
+colnames(60): CH A1-L.1 CH A1-L.2 ... R2.1 R3.1
+colData names(16): Sample Bar Code Sample Type ... sample_id SAMPLE_NAME
+D2:
+class: SummarizedExperiment 
+dim: 630 120 
+metadata(0):
+assays(1): exprs
+rownames(630): C0 C2 ... Xanthine Choline
+rowData names(9): feature_id Protocol ... original_dataset Method
+colnames(120): CH A1-B.1 CH A1-B.2 ... R2.1 R3.1
+colData names(16): Sample Bar Code Sample Type ... SAMPLE_NAME original_dataset
+deleting variable that is only in D1: Q1 
+deleting variable that is only in D1: Q3 
+deleting col variable that is only in D1: Run Number 
+deleting col variable that is only in D2: original_dataset 
+  [1] "C A1-L.1" "C A1-L.2" "C A2-L.1" "C A2-L.2" "C A3-L.1" "C A3-L.2" "C B1-L.1" "C B1-L.2" "C B2-L.1" "C B2-L.2" "C B3-L.1" "C B3-L.2" "C Y1"     "C Y2"     "C Y3"    
+ [16] "E A1-L.1" "E A1-L.2" "E A2-L.1" "E A2-L.2" "E A3-L.1" "E A3-L.2" "E B1-L.1" "E B1-L.2" "E B2-L.1" "E B2-L.2" "E B3-L.1" "E B3-L.2" "E Y1"     "E Y2"     "E Y3"    
+ [31] "M A1-L.1" "M A1-L.2" "M A2-L.1" "M A2-L.2" "M A3-L.1" "M A3-L.2" "M B1-L.1" "M B1-L.2" "M B2-L.1" "M B2-L.2" "M B3-L.1" "M B3-L.2" "M Y1"     "M Y2"     "M Y3"    
+ [46] "R A1.L.1" "R A1.L.2" "R A2-L.1" "R A2-L.2" "R A3-L.1" "R A3-L.2" "R B1-L.1" "R B1-L.2" "R B2-L.1" "R B2-L.2" "R B3-L.1" "R B3-L.2" "R Y1"     "R Y2"     "R Y3"    
+ [61] "C A1-B.1" "C A1-B.2" "C A2-B.1" "C A2-B.2" "C A3-B.1" "C A3-B.2" "C B1-B.1" "C B1-B.2" "C B2-B.1" "C B2-B.2" "C B3-B.1" "C B3-B.2" "C Y1"     "C Y2"     "C Y3"    
+ [76] "E A1-B.1" "E A1-B.2" "E A2-B.1" "E A2-B.2" "E A3-B.1" "E A3-B.2" "E B1-B.1" "E B1-B.2" "E B2-B.1" "E B2-B.2" "E B3-B.1" "E B3-B.2" "E Y1"     "E Y2"     "E Y3"    
+ [91] "M A1-B.1" "M A1-B.2" "M A2-B.1" "M A2-B.2" "M A3-B.1" "M A3-B.2" "M B1-B.1" "M B1-B.2" "M B2-B.1" "M B2-B.2" "M B3-B.1" "M B3-B.2" "M Y1"     "M Y2"     "M Y3"    
+[106] "R A1.B.1" "R A1.B.2" "R A2-B.1" "R A2-B.2" "R A3-B.1" "R A3-B.2" "R B1-B.1" "R B1-B.2" "R B2-B.1" "R B2-B.2" "R B3-B.1" "R B3-B.2" "R Y1"     "R Y2"     "R Y3"    
+[121] "C A1-F.1" "C A1-F.2" "C A2-F.1" "C A2-F.2" "C A3-F.1" "C A3-F.2" "C B1-F.1" "C B1-F.2" "C B2-F.1" "C B2-F.2" "C B3-F.1" "C B3-F.2" "C Y1"     "C Y2"     "C Y3"    
+[136] "E A1-F.1" "E A1-F.2" "E A2-F.1" "E A2-F.2" "E A3-F.1" "E A3-F.2" "E B1-F.1" "E B1-F.2" "E B2-F.1" "E B2-F.2" "E B3-F.1" "E B3-F.2" "E Y1"     "E Y2"     "E Y3"    
+[151] "M A1-F.1" "M A1-F.2" "M A2-F.1" "M A2-F.2" "M A3-F.1" "M A3-F.2" "M B1-F.1" "M B1-F.2" "M B2-F.1" "M B2-F.2" "M B3-F.1" "M B3-F.2" "M Y1"     "M Y2"     "M Y3"    
+[166] "R A1.F.1" "R A1.F.2" "R A2-F.1" "R A2-F.2" "R A3-F.1" "R A3-F.2" "R B1-F.1" "R B1-F.2" "R B2-F.1" "R B2-F.2" "R B3-F.1" "R B3-F.2" "R Y1"     "R Y2"     "R Y3"    
+
+buffer matrix 
+    36    144 
+
+50% Meth + 50% H2O 50% Meth + 50% PBS 80% Meth + 20% H2O 80% Meth + 20% PBS 
+                45                 45                 45                 45 
+
+120 uL 240 uL buffer 
+    72     72     36 
+
+ C  E  M  R 
+45 45 45 45 
+
+      B.1       B.2       F.1       F.2       L.1       L.2 no tissue 
+       24        24        24        24        24        24        36 
+                    
+                     120 uL 240 uL buffer
+  50% Meth + 50% H2O     18     18      9
+  50% Meth + 50% PBS     18     18      9
+  80% Meth + 20% H2O     18     18      9
+  80% Meth + 20% PBS     18     18      9
+                    
+                     B.1 B.2 F.1 F.2 L.1 L.2 no tissue
+  50% Meth + 50% H2O   6   6   6   6   6   6         9
+  50% Meth + 50% PBS   6   6   6   6   6   6         9
+  80% Meth + 20% H2O   6   6   6   6   6   6         9
+  80% Meth + 20% PBS   6   6   6   6   6   6         9
+           
+            120 uL 240 uL buffer
+  B.1           12     12      0
+  B.2           12     12      0
+  F.1           12     12      0
+  F.2           12     12      0
+  L.1           12     12      0
+  L.2           12     12      0
+  no tissue      0      0     36
+, ,  = 50% Meth + 50% H2O
+
+           
+            120 uL 240 uL buffer
+  B.1            3      3      0
+  B.2            3      3      0
+  F.1            3      3      0
+  F.2            3      3      0
+  L.1            3      3      0
+  L.2            3      3      0
+  no tissue      0      0      9
+
+, ,  = 50% Meth + 50% PBS
+
+           
+            120 uL 240 uL buffer
+  B.1            3      3      0
+  B.2            3      3      0
+  F.1            3      3      0
+  F.2            3      3      0
+  L.1            3      3      0
+  L.2            3      3      0
+  no tissue      0      0      9
+
+, ,  = 80% Meth + 20% H2O
+
+           
+            120 uL 240 uL buffer
+  B.1            3      3      0
+  B.2            3      3      0
+  F.1            3      3      0
+  F.2            3      3      0
+  L.1            3      3      0
+  L.2            3      3      0
+  no tissue      0      0      9
+
+, ,  = 80% Meth + 20% PBS
+
+           
+            120 uL 240 uL buffer
+  B.1            3      3      0
+  B.2            3      3      0
+  F.1            3      3      0
+  F.2            3      3      0
+  L.1            3      3      0
+  L.2            3      3      0
+  no tissue      0      0      9
+
+        
+         50% Meth + 50% H2O 50% Meth + 50% PBS 80% Meth + 20% H2O 80% Meth + 20% PBS
+  fat                    15                 15                 15                 15
+  liver                  15                 15                 15                 15
+  muscle                 15                 15                 15                 15
+        
+         B.1 B.2 F.1 F.2 L.1 L.2 no tissue
+  fat      0   0  24  24   0   0        12
+  liver    0   0   0   0  24  24        12
+  muscle  24  24   0   0   0   0        12
+        
+         buffer matrix
+  fat        12     48
+  liver      12     48
+  muscle     12     48
+2021-11-29 07:16:27 INFO:mt:Dataset info: 180 samples, 630 features; 23 sample annotation fields, 10 feature annotation fields
+class: SummarizedExperiment 
+dim: 630 180 
+metadata(1): results
+assays(1): exprs
+rownames(630): C0 C2 ... Xanthine Choline
+rowData names(10): feature_id Protocol ... Method tissue
+colnames(180): CH A1-L.1 [liver] CH A1-L.2 [liver] ... R2.1 [fat] R3.1 [fat]
+colData names(23): Sample Bar Code Sample Type ... Replicate Experiment
+removing buffer samples
+2021-11-29 07:16:27 INFO:mt:reporting heading, level 1: Data-Cleanup
+2021-11-29 07:16:27 INFO:mt:reporting heading, level 2: Missingness
+2021-11-29 07:16:27 INFO:mt:reporting text
+2021-11-29 07:16:27 INFO:mt:missingness plots, missing values: 14853 out of 113400 (13.10%%)
+2021-11-29 07:16:27 INFO:mt:reporting text
+2021-11-29 07:16:27 INFO:mt:missingness plots, missing values: 10227 out of 90720 (11.27%%)
+2021-11-29 07:16:27 INFO:mt:features filtered, 50.00%%, 39 of 630 removed
+2021-11-29 07:16:27 INFO:mt:reporting text
+2021-11-29 07:16:27 INFO:mt:missingness plots, missing values: 6331 out of 85104 (7.44%%)
+2021-11-29 07:16:27 INFO:mt:sample boxplot, aes: color=Buffer
+2021-11-29 07:16:27 INFO:mt:sample boxplot, aes: color=tissue
+2021-11-29 07:16:27 INFO:mtw:WARNING: Data matrix contains NAs
+2021-11-29 07:16:28 INFO:mt:quotient normalization based on 36 reference samples and 511 variables: ~
+ 2021-11-29 07:16:28 INFO:mt:quotient normalization based on 36 reference samples and 511 variables: Buffer == "80%% Meth + 20%% H2O"
+2021-11-29 07:16:28 INFO:mt:dilution factor plot, 'Buffer'
+2021-11-29 07:16:28 INFO:mt:sample boxplot, aes: color=Buffer
+2021-11-29 07:16:28 INFO:mt:log2.000000
+2021-11-29 07:16:28 INFO:mt:sample boxplot, aes: color=Buffer
+2021-11-29 07:16:28 INFO:mt:flagged 0 univariate outliers
+2021-11-29 07:16:28 INFO:mt:Dataset info: 144 samples, 591 features; 25 sample annotation fields, 10 feature annotation fields
+2021-11-29 07:16:29 INFO:mt:Data exported to Excel file 'PreprocessedData.xlsx'
+2021-11-29 07:16:29 INFO:mt:reporting heading, level 1: Global Statistics
+2021-11-29 07:16:31 INFO:mt:UMAP, label_col: , aes: color=Buffer, size=2.5
+2021-11-29 07:16:31 INFO:mt:Heatmap of assay data.
+2021-11-29 07:16:32 INFO:mt:UMAP, label_col: , aes: color=tissue, size=2.5
+2021-11-29 07:16:32 INFO:mt:Heatmap of assay data.
+2021-11-29 07:16:32 INFO:mt:PCA, scores, label_col: , aes: color=Buffer, shape=tissue, size=2.5
+2021-11-29 07:16:32 INFO:mt:reporting heading, level 2: Buffer analysis
+2021-11-29 07:16:40 INFO:mt:univariate lm, ~Buffer
+~Buffer
+2021-11-29 07:16:40 INFO:mt:Multiple testing correction of 'Buffer met' using 'BH'
+2021-11-29 07:16:40 INFO:mt:'Buffer met' info
+
+Samples:
+50%% Meth + 50%% H2O: 36, 50%% Meth + 50%% PBS: 36, 80%% Meth + 20%% H2O: 36, 80%% Meth + 20%% PBS: 36 /// features: p.adj < 0.05, 125 of 591
+2021-11-29 07:16:41 INFO:mt:Exported sheets 'Buffer met' to Excel file 'BufferAnalysis.xlsx'
+2021-11-29 07:16:41 INFO:mt:P-value histograms for Buffer met
+2021-11-29 07:16:41 INFO:mts:filter features: ~p.adj < 0.05 [125 remaining]
+2021-11-29 07:16:41 INFO:mts:sorted features: ~p.value
+2021-11-29 07:16:41 INFO:mt:Feature
+2021-11-29 07:16:41 INFO:mt:reporting heading, level 2: Tissue analysis
+2021-11-29 07:16:49 INFO:mt:univariate lm, ~tissue
+~tissue
+2021-11-29 07:16:49 INFO:mt:Multiple testing correction of 'Tissue met' using 'BH'
+2021-11-29 07:16:49 INFO:mt:'Tissue met' info
+
+Samples:
+fat: 48, liver: 48, muscle: 48 /// features: p.adj < 0.05, 360 of 591
+2021-11-29 07:16:49 INFO:mt:Exported sheets 'Buffer met, Tissue met' to Excel file 'TissueAnalysis.xlsx'
+2021-11-29 07:16:49 INFO:mt:P-value histograms for Tissue met
+2021-11-29 07:16:49 INFO:mt:reporting heading, level 1: Statisitcal Results Presentation
+2021-11-29 07:16:49 INFO:mt:reporting heading, level 2: Barplot
+2021-11-29 07:16:49 INFO:mt:bar plot for comparison Buffer met, Tissue met, by Class, filtered for p.adj < 0.05, using count
+2021-11-29 07:16:49 INFO:mt:bar plot for comparison Buffer met, Tissue met, by Class, filtered for p.adj < 0.05, using fraction
+2021-11-29 07:16:49 INFO:mt:reporting heading, level 2: Multiple Statistics Heatmap
+2021-11-29 07:16:49 INFO:mt:Pheatmap of stat results.
+ Colors represent (sign(statistic) * -log10(p.adj)))
+2021-11-29 07:16:49 INFO:mt:reporting heading, level 2: Result Comparison
+2021-11-29 07:16:49 INFO:mt:comparison plot between 'Buffer met' and 'Tissue met'
+2021-11-29 07:16:49 INFO:mt:reporting heading, level 2: Partial Correlation Network
+Estimate (local) false discovery rates (partial correlations):
+Step 1... determine cutoff point
+Step 2... estimate parameters of null distribution and eta0
+Step 3... compute p-values and estimate empirical PDF/CDF
+Step 4... compute q-values and local fdr
+
+2021-11-29 07:16:51 INFO:mt:GeneNet partial correlation
+2021-11-29 07:16:51 INFO:mt:Multiple testing correction of 'GGM' using 'BH'
+2021-11-29 07:16:52 INFO:mts:filter correlations
+2021-11-29 07:17:52 INFO:mt:Correlation Network, aes: GGM
+2021-11-29 07:17:53 INFO:mt:pathway aggregation by 'Class', 22 pathway scores generated
+2021-11-29 07:17:53 INFO:mt:reporting heading, level 1: Pathway Aggregation Analysis
+2021-11-29 07:17:53 INFO:mt:reporting heading, level 2: Buffer analysis
+2021-11-29 07:17:53 INFO:mt:univariate lm, ~Buffer
+~Buffer
+2021-11-29 07:17:53 INFO:mt:Multiple testing correction of 'Buffer pw' using 'BH'
+2021-11-29 07:17:53 INFO:mt:'Buffer pw' info
+
+Samples:
+50%% Meth + 50%% H2O: 36, 50%% Meth + 50%% PBS: 36, 80%% Meth + 20%% H2O: 36, 80%% Meth + 20%% PBS: 36 /// features: p.adj < 0.05, 7 of 22
+2021-11-29 07:17:53 INFO:mt:P-value histograms for Buffer pw
+2021-11-29 07:17:53 INFO:mts:filter features: ~p.adj < 0.05 [7 remaining]
+2021-11-29 07:17:53 INFO:mts:sorted features: ~p.value
+2021-11-29 07:17:53 INFO:mt:Feature
+2021-11-29 07:17:53 INFO:mt:reporting heading, level 2: Tissue analysis
+2021-11-29 07:17:53 INFO:mt:univariate lm, ~tissue
+~tissue
+2021-11-29 07:17:53 INFO:mt:Multiple testing correction of 'Tissue pw' using 'BH'
+2021-11-29 07:17:53 INFO:mt:'Tissue pw' info
+
+Samples:
+fat: 48, liver: 48, muscle: 48 /// features: p.adj < 0.05, 21 of 22
+2021-11-29 07:17:53 INFO:mt:P-value histograms for Tissue pw
+2021-11-29 07:17:53 INFO:mts:filter features: ~p.adj < 0.05 [21 remaining]
+2021-11-29 07:17:53 INFO:mts:sorted features: ~p.value
+2021-11-29 07:17:53 INFO:mt:Feature
+2021-11-29 07:17:53 INFO:mt:reporting heading, level 2: Multiple Statistics Heatmap
+2021-11-29 07:17:53 INFO:mt:Pheatmap of stat results.
+ Colors represent (sign(statistic) * -log10(p.adj)))
+2021-11-29 07:17:53 INFO:mt:reporting heading, level 2: Result Comparison
+2021-11-29 07:17:54 INFO:mt:comparison plot between 'Buffer pw' and 'Tissue pw'
+  |                                                                                                                                                                           |                                                                                                                                                                   |   0%  |                                                                                                                                                                           |...                                                                                                                                                                |   2%
+  ordinary text without R code
+
+  |                                                                                                                                                                           |......                                                                                                                                                             |   4%
+label: unnamed-chunk-1 (with options) 
+List of 1
+ $ echo: logi FALSE
+
+  |                                                                                                                                                                           |.........                                                                                                                                                          |   5%
+  ordinary text without R code
+
+  |                                                                                                                                                                           |............                                                                                                                                                       |   7%
+label: unnamed-chunk-2
+  |                                                                                                                                                                           |...............                                                                                                                                                    |   9%
+  ordinary text without R code
+
+  |                                                                                                                                                                           |..................                                                                                                                                                 |  11%
+label: unnamed-chunk-3
+  |                                                                                                                                                                           |.....................                                                                                                                                              |  13%
+  ordinary text without R code
+
+  |                                                                                                                                                                           |........................                                                                                                                                           |  15%
+label: unnamed-chunk-4
+  |                                                                                                                                                                           |...........................                                                                                                                                        |  16%
+  ordinary text without R code
+
+  |                                                                                                                                                                           |..............................                                                                                                                                     |  18%
+label: unnamed-chunk-5
+  |                                                                                                                                                                           |.................................                                                                                                                                  |  20%
+  ordinary text without R code
+
+  |                                                                                                                                                                           |....................................                                                                                                                               |  22%
+label: unnamed-chunk-6
+  |                                                                                                                                                                           |.......................................                                                                                                                            |  24%
+  ordinary text without R code
+
+  |                                                                                                                                                                           |.........................................                                                                                                                          |  25%
+label: unnamed-chunk-7
+  |                                                                                                                                                                           |............................................                                                                                                                       |  27%
+  ordinary text without R code
+
+  |                                                                                                                                                                           |...............................................                                                                                                                    |  29%
+label: unnamed-chunk-8
+  |                                                                                                                                                                           |..................................................                                                                                                                 |  31%
+  ordinary text without R code
+
+  |                                                                                                                                                                           |.....................................................                                                                                                              |  33%
+label: unnamed-chunk-9
+  |                                                                                                                                                                           |........................................................                                                                                                           |  35%
+  ordinary text without R code
+
+  |                                                                                                                                                                           |...........................................................                                                                                                        |  36%
+label: unnamed-chunk-10
+  |                                                                                                                                                                           |..............................................................                                                                                                     |  38%
+  ordinary text without R code
+
+  |                                                                                                                                                                           |.................................................................                                                                                                  |  40%
+label: unnamed-chunk-11
+  |                                                                                                                                                                           |....................................................................                                                                                               |  42%
+  ordinary text without R code
+
+  |                                                                                                                                                                           |.......................................................................                                                                                            |  44%
+label: unnamed-chunk-12
+  |                                                                                                                                                                           |..........................................................................                                                                                         |  45%
+  ordinary text without R code
+
+  |                                                                                                                                                                           |.............................................................................                                                                                      |  47%
+label: unnamed-chunk-13
+  |                                                                                                                                                                           |................................................................................                                                                                   |  49%
+  ordinary text without R code
+
+  |                                                                                                                                                                           |...................................................................................                                                                                |  51%
+label: unnamed-chunk-14
+  |                                                                                                                                                                           |......................................................................................                                                                             |  53%
+  ordinary text without R code
+
+  |                                                                                                                                                                           |.........................................................................................                                                                          |  55%
+label: unnamed-chunk-15
+  |                                                                                                                                                                           |............................................................................................                                                                       |  56%
+  ordinary text without R code
+
+  |                                                                                                                                                                           |...............................................................................................                                                                    |  58%
+label: unnamed-chunk-16
+  |                                                                                                                                                                           |..................................................................................................                                                                 |  60%
+  ordinary text without R code
+
+  |                                                                                                                                                                           |.....................................................................................................                                                              |  62%
+label: unnamed-chunk-17 (with options) 
+List of 1
+ $ results: chr "asis"
+
+  |                                                                                                                                                                           |........................................................................................................                                                           |  64%
+  ordinary text without R code
+
+  |                                                                                                                                                                           |...........................................................................................................                                                        |  65%
+label: unnamed-chunk-18
+  |                                                                                                                                                                           |..............................................................................................................                                                     |  67%
+  ordinary text without R code
+
+  |                                                                                                                                                                           |.................................................................................................................                                                  |  69%
+label: unnamed-chunk-19 (with options) 
+List of 2
+ $ fig.width : num 7
+ $ fig.height: num 141
+
+  |                                                                                                                                                                           |....................................................................................................................                                               |  71%
+  ordinary text without R code
+
+  |                                                                                                                                                                           |.......................................................................................................................                                            |  73%
+label: unnamed-chunk-20 (with options) 
+List of 1
+ $ results: chr "asis"
+
+  |                                                                                                                                                                           |..........................................................................................................................                                         |  75%
+  ordinary text without R code
+
+  |                                                                                                                                                                           |............................................................................................................................                                       |  76%
+label: unnamed-chunk-21
+  |                                                                                                                                                                           |...............................................................................................................................                                    |  78%
+  ordinary text without R code
+
+  |                                                                                                                                                                           |..................................................................................................................................                                 |  80%
+label: unnamed-chunk-22 (with options) 
+List of 2
+ $ fig.width : num 11
+ $ fig.height: num 3.48
+
+  |                                                                                                                                                                           |.....................................................................................................................................                              |  82%
+  ordinary text without R code
+
+  |                                                                                                                                                                           |........................................................................................................................................                           |  84%
+label: unnamed-chunk-23 (with options) 
+List of 2
+ $ fig.width : num 11
+ $ fig.height: num 3.48
+
+  |                                                                                                                                                                           |...........................................................................................................................................                        |  85%
+  ordinary text without R code
+
+  |                                                                                                                                                                           |..............................................................................................................................................                     |  87%
+label: unnamed-chunk-24
+  |                                                                                                                                                                           |.................................................................................................................................................                  |  89%
+  ordinary text without R code
+
+  |                                                                                                                                                                           |....................................................................................................................................................               |  91%
+label: unnamed-chunk-25
+  |                                                                                                                                                                           |.......................................................................................................................................................            |  93%
+  ordinary text without R code
+
+  |                                                                                                                                                                           |..........................................................................................................................................................         |  95%
+label: unnamed-chunk-26 (with options) 
+List of 1
+ $ results: chr "asis"
+
+  |                                                                                                                                                                           |.............................................................................................................................................................      |  96%
+  ordinary text without R code
+
+  |                                                                                                                                                                           |................................................................................................................................................................   |  98%
+label: unnamed-chunk-27
+  |                                                                                                                                                                           |...................................................................................................................................................................| 100%
+  ordinary text without R code
+
+
+/usr/lib/rstudio-server/bin/pandoc/pandoc +RTS -K512m -RTS tmp_366507bd-ee18-4196-881d-6a410697a7e7.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output tmp_366507bd-ee18-4196-881d-6a410697a7e7.html --lua-filter /usr/local/lib/R/site-library/rmarkdown/rmarkdown/lua/pagebreak.lua --lua-filter /usr/local/lib/R/site-library/rmarkdown/rmarkdown/lua/latex-div.lua --self-contained --variable bs3=TRUE --standalone --section-divs --table-of-contents --toc-depth 3 --variable toc_float=1 --variable toc_selectors=h1,h2,h3 --variable toc_collapsed=1 --variable toc_smooth_scroll=1 --variable toc_print=1 --template /usr/local/lib/R/site-library/rmarkdown/rmd/h/default.html --no-highlight --variable highlightjs=1 --variable theme=bootstrap --include-in-header /tmp/RtmphLpo5D/rmarkdown-str4334863a02.html --mathjax --variable 'mathjax-url:https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML' 
+class: SummarizedExperiment 
+dim: 591 144 
+metadata(1): results
+assays(1): exprs
+rownames(591): C0 C2 ... Xanthine Choline
+rowData names(10): feature_id Protocol ... Method tissue
+colnames(144): CH A1-L.1 [liver] CH A1-L.2 [liver] ... R B3-F.1 [fat] R B3-F.2 [fat]
+colData names(26): Sample Bar Code Sample Type ... score_univariate factor
+  |                                                                                                                                                                           |                                                                                                                                                                   |   0%  |                                                                                                                                                                           |...                                                                                                                                                                |   2%
+  ordinary text without R code
+
+  |                                                                                                                                                                           |.......                                                                                                                                                            |   4%
+label: unnamed-chunk-1 (with options) 
+List of 1
+ $ echo: logi FALSE
+
+  |                                                                                                                                                                           |..........                                                                                                                                                         |   6%
+  ordinary text without R code
+
+  |                                                                                                                                                                           |.............                                                                                                                                                      |   8%
+label: unnamed-chunk-2
+  |                                                                                                                                                                           |.................                                                                                                                                                  |  10%
+  ordinary text without R code
+
+  |                                                                                                                                                                           |....................                                                                                                                                               |  12%
+label: unnamed-chunk-3
+  |                                                                                                                                                                           |.......................                                                                                                                                            |  14%
+  ordinary text without R code
+
+  |                                                                                                                                                                           |...........................                                                                                                                                        |  16%
+label: unnamed-chunk-4
+  |                                                                                                                                                                           |..............................                                                                                                                                     |  18%
+  ordinary text without R code
+
+  |                                                                                                                                                                           |.................................                                                                                                                                  |  20%
+label: unnamed-chunk-5
+  |                                                                                                                                                                           |.....................................                                                                                                                              |  22%
+  ordinary text without R code
+
+  |                                                                                                                                                                           |........................................                                                                                                                           |  24%
+label: unnamed-chunk-6
+  |                                                                                                                                                                           |...........................................                                                                                                                        |  27%
+  ordinary text without R code
+
+  |                                                                                                                                                                           |...............................................                                                                                                                    |  29%
+label: unnamed-chunk-7
+  |                                                                                                                                                                           |..................................................                                                                                                                 |  31%
+  ordinary text without R code
+
+  |                                                                                                                                                                           |.....................................................                                                                                                              |  33%
+label: unnamed-chunk-8
+  |                                                                                                                                                                           |.........................................................                                                                                                          |  35%
+  ordinary text without R code
+
+  |                                                                                                                                                                           |............................................................                                                                                                       |  37%
+label: unnamed-chunk-9
+  |                                                                                                                                                                           |...............................................................                                                                                                    |  39%
+  ordinary text without R code
+
+  |                                                                                                                                                                           |...................................................................                                                                                                |  41%
+label: unnamed-chunk-10
+  |                                                                                                                                                                           |......................................................................                                                                                             |  43%
+  ordinary text without R code
+
+  |                                                                                                                                                                           |.........................................................................                                                                                          |  45%
+label: unnamed-chunk-11
+  |                                                                                                                                                                           |.............................................................................                                                                                      |  47%
+  ordinary text without R code
+
+  |                                                                                                                                                                           |................................................................................                                                                                   |  49%
+label: unnamed-chunk-12
+  |                                                                                                                                                                           |...................................................................................                                                                                |  51%
+  ordinary text without R code
+
+  |                                                                                                                                                                           |......................................................................................                                                                             |  53%
+label: unnamed-chunk-13
+  |                                                                                                                                                                           |..........................................................................................                                                                         |  55%
+  ordinary text without R code
+
+  |                                                                                                                                                                           |.............................................................................................                                                                      |  57%
+label: unnamed-chunk-14
+  |                                                                                                                                                                           |................................................................................................                                                                   |  59%
+  ordinary text without R code
+
+  |                                                                                                                                                                           |....................................................................................................                                                               |  61%
+label: unnamed-chunk-15
+  |                                                                                                                                                                           |.......................................................................................................                                                            |  63%
+  ordinary text without R code
+
+  |                                                                                                                                                                           |..........................................................................................................                                                         |  65%
+label: unnamed-chunk-16
+  |                                                                                                                                                                           |..............................................................................................................                                                     |  67%
+  ordinary text without R code
+
+  |                                                                                                                                                                           |.................................................................................................................                                                  |  69%
+label: unnamed-chunk-17 (with options) 
+List of 1
+ $ results: chr "asis"
+
+  |                                                                                                                                                                           |....................................................................................................................                                               |  71%
+  ordinary text without R code
+
+  |                                                                                                                                                                           |........................................................................................................................                                           |  73%
+label: unnamed-chunk-18
+  |                                                                                                                                                                           |...........................................................................................................................                                        |  76%
+  ordinary text without R code
+
+  |                                                                                                                                                                           |..............................................................................................................................                                     |  78%
+label: unnamed-chunk-19 (with options) 
+List of 2
+ $ fig.width : num 7
+ $ fig.height: num 9.7
+
+  |                                                                                                                                                                           |..................................................................................................................................                                 |  80%
+  ordinary text without R code
+
+  |                                                                                                                                                                           |.....................................................................................................................................                              |  82%
+label: unnamed-chunk-20 (with options) 
+List of 1
+ $ results: chr "asis"
+
+  |                                                                                                                                                                           |........................................................................................................................................                           |  84%
+  ordinary text without R code
+
+  |                                                                                                                                                                           |............................................................................................................................................                       |  86%
+label: unnamed-chunk-21
+  |                                                                                                                                                                           |...............................................................................................................................................                    |  88%
+  ordinary text without R code
+
+  |                                                                                                                                                                           |..................................................................................................................................................                 |  90%
+label: unnamed-chunk-22 (with options) 
+List of 2
+ $ fig.width : num 7
+ $ fig.height: num 25.3
+
+  |                                                                                                                                                                           |......................................................................................................................................................             |  92%
+  ordinary text without R code
+
+  |                                                                                                                                                                           |.........................................................................................................................................................          |  94%
+label: unnamed-chunk-23
+  |                                                                                                                                                                           |............................................................................................................................................................       |  96%
+  ordinary text without R code
+
+  |                                                                                                                                                                           |................................................................................................................................................................   |  98%
+label: unnamed-chunk-24
+  |                                                                                                                                                                           |...................................................................................................................................................................| 100%
+  ordinary text without R code
+
+
+/usr/lib/rstudio-server/bin/pandoc/pandoc +RTS -K512m -RTS tmp_a08d00f7-8a79-4684-b8f0-ffb138d30d75.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output tmp_a08d00f7-8a79-4684-b8f0-ffb138d30d75.html --lua-filter /usr/local/lib/R/site-library/rmarkdown/rmarkdown/lua/pagebreak.lua --lua-filter /usr/local/lib/R/site-library/rmarkdown/rmarkdown/lua/latex-div.lua --self-contained --variable bs3=TRUE --standalone --section-divs --table-of-contents --toc-depth 3 --variable toc_float=1 --variable toc_selectors=h1,h2,h3 --variable toc_collapsed=1 --variable toc_smooth_scroll=1 --variable toc_print=1 --template /usr/local/lib/R/site-library/rmarkdown/rmd/h/default.html --no-highlight --variable highlightjs=1 --variable theme=bootstrap --include-in-header /tmp/RtmphLpo5D/rmarkdown-str43379dfc97.html --mathjax --variable 'mathjax-url:https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML' 
+class: SummarizedExperiment 
+dim: 22 144 
+metadata(1): results
+assays(1): ''
+rownames(22): Acylcarnitines Ceramides ... Nucleobases.Related Vitamins...Cofactors
+rowData names(5): name Class original_dataset Method tissue
+colnames(144): CH A1-L.1 [liver] CH A1-L.2 [liver] ... R B3-F.1 [fat] R B3-F.2 [fat]
+colData names(26): Sample Bar Code Sample Type ... score_univariate factor
+[1] "2021-11-29 07:19:18 UTC"

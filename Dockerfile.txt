@@ -1,0 +1,35 @@
+FROM apache/airflow:1.10.12-python3.8
+
+USER root
+
+RUN apt update -y && apt install -y vim
+RUN pip install --upgrade pip
+
+RUN apt-get install -y r-base
+
+RUN echo "r <- getOption('repos'); r['CRAN'] <- 'http://cran.rstudio.com'; options(repos = r);" > ~/.Rprofile
+RUN Rscript -e "install.packages('DBI')"
+RUN Rscript -e "install.packages('data.table')"
+RUN Rscript -e "install.packages('dplyr')"
+RUN Rscript -e "install.packages('dbplyr')"
+RUN Rscript -e "install.packages('magrittr')"
+RUN Rscript -e "install.packages('furrr')"
+RUN Rscript -e "install.packages('lubridate')"
+RUN Rscript -e "install.packages('future')"
+RUN Rscript -e "install.packages('jsonlite')"
+
+RUN Rscript -e "install.packages('odbc')"
+RUN Rscript -e "install.packages('tidyverse')"
+
+USER airflow
+
+# Copy files
+COPY . ./
+
+# Install dependencies
+RUN pip install -r requirements.txt
+
+# Python path
+ENV PYTHONPATH "${PYTHONPATH}:/opt/airflow"
+
+RUN airflow initdb
