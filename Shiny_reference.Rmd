@@ -1,0 +1,45 @@
+
+library(shiny)
+library("shinydashboard")
+
+ui <- fluidPage(
+  fluidRow(
+    column(3, navlistPanel(
+      widths = c(12, 12), "SidebarMenu",
+      tabPanel(selectizeInput('case', 'Pick a case', selected="A", choices = c("A", "B"), multiple = FALSE)),
+      tabPanel(numericInput('num', 'Number', min = 1, max = 10, value = 1, step = 1))
+    )),
+    column(9,  navbarPage(title = "nav w/ sidebarMenu",
+                          
+                          tabPanel(h4("Perspective 1"),
+                                   tabsetPanel(
+                                     tabPanel("Subtab 1.1",
+                                              plotOutput("plot11")),
+                                     tabPanel("Subtab 1.2")
+                                   )),
+                          tabPanel(h4("Perspective 2"),
+                                   tabsetPanel(
+                                     tabPanel("Subtab 2.1"),
+                                     tabPanel("Subtab 2.2")
+                                   ))))
+    
+    
+  )
+)
+
+
+# Define server logic required to draw a histogram
+server <- function(input, output) {
+
+    output$distPlot <- renderPlot({
+        # generate bins based on input$bins from ui.R
+        x    <- faithful[, 2]
+        bins <- seq(min(x), max(x), length.out = input$bins + 1)
+
+        # draw the histogram with the specified number of bins
+        hist(x, breaks = bins, col = 'darkgray', border = 'white')
+    })
+}
+
+# Run the application 
+shinyApp(ui = ui, server = server)
