@@ -13,13 +13,16 @@ source("merge_SE.R")
 source("mt_remove_buffer.R")
 source("mt_stats_univ_lm_temp.R")
 source("mti_format_se_samplewise_temp.R")
-source("beef_metabolomics_maplet_fun.R")
+
+source("read_beef_data.R")
 
 ui <- fluidPage(  titlePanel("Beef Metabolomics Analysis"),
                   tabsetPanel(
                     tabPanel(h4("Data Cleanup"),column(3, navlistPanel(
                       widths = c(12, 12), "",
-                      tabPanel("Missingness"),
+                      tabPanel("Missingness",  mainPanel(
+                        plotOutput("missingPlot")
+                      )),
                       tabPanel("Box Plot"),
                       tabPanel("Normalization")
                     ))),
@@ -31,4 +34,4 @@ ui <- fluidPage(  titlePanel("Beef Metabolomics Analysis"),
 
 
 
-r <- metadata(D)$results
+#r <- metadata(D)$results

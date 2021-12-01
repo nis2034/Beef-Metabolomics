@@ -504,9 +504,12 @@ D1
 
 
 
-#r <- metadata(D)$results
+r <- metadata(D)$results
+(r[[i]]$fun[1]=="plots")
 
 
+r[[1]]$fun[1]
+r[[4]]
 
 # #####################%%%%%%%%%%%%%%%%%%%%%%%%%%set Buffer as subgroup variable
 
