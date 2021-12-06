@@ -1,5 +1,5 @@
 Start logging to beef_metabolomics_maplet_v1_cmerge_buffer_removed.log 
-[1] "2021-12-01 11:35:45 UTC"
+[1] "2021-12-01 11:50:08 UTC"
 -/                                                                                                                                                                           File format identifier is: MetIDQ-Oxygen-DB110-3005 Concentration [µM] NoNormalization 
 -/                                                                                                                                                                           -/                                                                                                                                                                           Assay data for 87 samples and 524 traits read in 
 There are 20 parameters describing the samples:
@@ -426,4 +426,4 @@ buffer matrix
   fat        12     48
   liver      12     48
   muscle     12     48
-2021-12-01 11:36:03 INFO:mt:missingness plots, missing values: 14853 out of 113400 (13.10%%)
+2021-12-01 11:50:26 INFO:mt:missingness plots, missing values: 14853 out of 113400 (13.10%%)
