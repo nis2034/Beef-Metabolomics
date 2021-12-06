@@ -24,16 +24,7 @@ ui <- dashboardPage(
       tabItem(
         tabName = "missingness",
         fluidRow(
-          checkboxInput("fil_buff_samples", "Filter Buffer Samples", FALSE),
-          h3("Missigness before removing buffer"),
-          
-          #verbatimTextOutput("filt_buff"),
-          plotOutput("missingPlot1"),
-          plotOutput("missing_heatmapPlot1"),
-          uiOutput("conditionalBuffFilt1"),
-          uiOutput("conditionalBuffFilt2"),
-          uiOutput("conditionalBuffFilt3")
-         
+          h1("Homepage 1 - missingness")
         )
       ),
       tabItem(
