@@ -33,7 +33,7 @@ source("mt_biocrates_anno_pathways_xls")
 # source("mt_stats_univ_wilcox_temp.R")
 
 
- 
+
 
 
 # choose options here
@@ -205,51 +205,51 @@ D %>%  mt_reporting_data()
 
 # PART 1 - PREPROCESSING AND PLOTTING ----------------------------------------------------
 
-D <-D %>% mt_reporting_heading(heading = "Data-Cleanup", lvl = 1) %>%  
-    mt_reporting_heading(heading = "Missingness", lvl = 2) %>%
-    mt_reporting_text(text = "Missigness before removing buffer") %>%
-    mt_plots_missingness(feat_max=0.5) %>%
-    mt_remove_buffer() %>%
-    mt_reporting_text(text = "Missingness after removing buffer") %>%
-    mt_plots_missingness(feat_max=0.5) %>%
-    # filter metabolites with more than 50% missing values per group, otherwise PCA will throw error
-    mt_pre_filter_missingness(feat_max = 0.5, group_col = "Group") %>%
-    mt_reporting_text(text = "Missingness after filtering metabolites with more than 50% missing values per group") %>%
-    # plot missingness distribution after filtering
-    mt_plots_missingness(feat_max=0.5) %>%
-    mt_plots_sample_boxplot(color=Buffer, title = "Buffer Types", plot_logged = T) %>%
-    mt_plots_sample_boxplot(color=tissue, title = "Tissue Types", plot_logged = T) %>%
-    #' Quotient normalization
-    #' Implementation according to Dieterle et al., 2006
-    #'Normalize abundances using probabilistic quotient
-    mt_pre_norm_quot(feat_max = 0.2, ref_samples = Buffer=="80% Meth + 20% H2O") %>%
-    # show dilution plot
-    mt_plots_dilution_factor(in_col="Buffer") %>%
-    # plot sample boxplots after normalization
-    mt_plots_sample_boxplot(color=Buffer, title = "After probabilistic quotient normalization", plot_logged = T) %>%
-    # There cannot be 0 in the assay
-    
-    # log transform -  log2 transformation
-    #   other data transformation functions: mt_pre_trans_exp, mt_pre_trans_relative, mt_pre_trans_scale
-    mt_pre_trans_log() %>%
+D3 <-D %>% mt_reporting_heading(heading = "Data-Cleanup", lvl = 1) %>%  
+  mt_reporting_heading(heading = "Missingness", lvl = 2) %>%
+  mt_reporting_text(text = "Missigness before removing buffer") %>%
+  mt_plots_missingness(feat_max=0.5) %>%
+  mt_remove_buffer() %>%
+  mt_reporting_text(text = "Missingness after removing buffer") %>%
+  mt_plots_missingness(feat_max=0.5) %>%
+  # filter metabolites with more than 50% missing values per group, otherwise PCA will throw error
+  mt_pre_filter_missingness(feat_max = 0.5, group_col = "Group") %>%
+  mt_reporting_text(text = "Missingness after filtering metabolites with more than 50% missing values per group") %>%
+  # plot missingness distribution after filtering
+  mt_plots_missingness(feat_max=0.5) %>%
+  mt_plots_sample_boxplot(color=Buffer, title = "Buffer Types", plot_logged = T) %>%
+  mt_plots_sample_boxplot(color=tissue, title = "Tissue Types", plot_logged = T) %>%
+  #' Quotient normalization
+  #' Implementation according to Dieterle et al., 2006
+  #'Normalize abundances using probabilistic quotient
+  mt_pre_norm_quot(feat_max = 0.2, ref_samples = Buffer=="80% Meth + 20% H2O") %>%
+  # show dilution plot
+  mt_plots_dilution_factor(in_col="Buffer") %>%
+  # plot sample boxplots after normalization
+  mt_plots_sample_boxplot(color=Buffer, title = "After probabilistic quotient normalization", plot_logged = T) %>%
+  # There cannot be 0 in the assay
   
-    mt_plots_sample_boxplot(color=Buffer, title = "After log2 transformation", plot_logged = T) %>%
+  # log transform -  log2 transformation
+  #   other data transformation functions: mt_pre_trans_exp, mt_pre_trans_relative, mt_pre_trans_scale
+  mt_pre_trans_log() %>%
   
-    # impute missing values using KNN method : k Number of nearest neighbors to consider. 
-    #   alternative imputation functions: mt_pre_impute_min
-    # mt_pre_impute_min() %>%
-    # plot sample boxplot after imputation
-    ##mt_plots_sample_boxplot(color=Buffer, title = "After knn imputation", plot_logged = T) %>%
-    # outlier detection (univariate)
-    #   alternative functions: mt_pre_outlier_detection_mahalanobis(), mt_pre_outlier_detection_leverage()
-    #   related function: mt_pre_outlier_to_na()
-    # 2 columns "outlier" and "score" will be added to colData(D)
-    mt_pre_outlier_detection_univariate() %>%
-    # print infos about dataset
-    mt_reporting_data() %>%
-    # write preprocessed data to Excel file
-    #   other writing functions: mt_write_se_rds (save SummarizedExerpiment object)
-    mt_write_se_xls(file = "PreprocessedData.xlsx") %>%
+  mt_plots_sample_boxplot(color=Buffer, title = "After log2 transformation", plot_logged = T) %>%
+  
+  # impute missing values using KNN method : k Number of nearest neighbors to consider. 
+  #   alternative imputation functions: mt_pre_impute_min
+  # mt_pre_impute_min() %>%
+  # plot sample boxplot after imputation
+  ##mt_plots_sample_boxplot(color=Buffer, title = "After knn imputation", plot_logged = T) %>%
+  # outlier detection (univariate)
+  #   alternative functions: mt_pre_outlier_detection_mahalanobis(), mt_pre_outlier_detection_leverage()
+  #   related function: mt_pre_outlier_to_na()
+  # 2 columns "outlier" and "score" will be added to colData(D)
+  mt_pre_outlier_detection_univariate() %>%
+  # print infos about dataset
+  mt_reporting_data() %>%
+  # write preprocessed data to Excel file
+  #   other writing functions: mt_write_se_rds (save SummarizedExerpiment object)
+  mt_write_se_xls(file = "PreprocessedData.xlsx") %>%
   {.}
 
 
@@ -372,7 +372,7 @@ D1 <- D1 %>%
   #                  feat_filter = p.adj < 0.05,
   #                  colour       = p.adj < 0.05) %>%
   # boxplot
- 
+  
   {.}
 
 # PART 7.1 - STATISTICAL RESULTS PRESENTATION: STATS PATHWAY BAR PLOT & PATHVIEW ----------------------------------------------------
@@ -393,11 +393,11 @@ D1 <- D1 %>%
   mt_plots_stats_pathway_bar(stat_list = c("Buffer met","Tissue met"),
                              feat_filter = p.adj < 0.05,
                              group_col = "Class",
-                            
+                             
                              y_scale = "fraction",
                              sort_by_y = T,
                              assoc_sign_col = "statistic") %>%
- 
+  
   {.}
 
 
@@ -474,7 +474,7 @@ D2 <- D2 %>%
                        feat_sort         = p.value,
                        annotation         = "{sprintf('P-value: %.2e', p.value)}\nPadj: {sprintf('%.2e', p.adj)}") %>%
   
-   mt_reporting_heading(heading = "Tissue analysis", lvl = 2) %>%
+  mt_reporting_heading(heading = "Tissue analysis", lvl = 2) %>%
   # linear model for binary function (equivalent to t-test)
   #   alternative functions: mt_stats_univ_wilcox, mt_stats_univ_lm_matrixeqtl
   mt_stats_univ_lm(formula = ~ tissue,
@@ -493,7 +493,7 @@ D2 <- D2 %>%
                        feat_filter       = p.adj < 0.05,
                        feat_sort         = p.value,
                        annotation         = "{sprintf('P-value: %.2e', p.value)}\nPadj: {sprintf('%.2e', p.adj)}") 
-  
+
 
 
 D2 <- D2 %>%
@@ -511,11 +511,11 @@ D2 <- D2 %>%
 
 ################### Generate html ###############################################
 # PART 13 - CREATE ANALYSIS REPORTS ----------------------------------------------------
- D1 %>% mt_reporting_html(file = paste(basename, ".maplet.html", sep = ""),
-                     title = basename) 
+D1 %>% mt_reporting_html(file = paste(basename, ".maplet.html", sep = ""),
+                         title = basename) 
 #   
- D2 %>% mt_reporting_html(file = "Example_Pipeline_Pathway_Analysis.html",
-                          title = "Example Pipeline - Pathway Aggregation Analysis")
+D2 %>% mt_reporting_html(file = "Example_Pipeline_Pathway_Analysis.html",
+                         title = "Example Pipeline - Pathway Aggregation Analysis")
 
 print(Sys.time())
 sink()
