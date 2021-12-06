@@ -1,78 +1,51 @@
 Start logging to beef_metabolomics_maplet_v1_cmerge_buffer_removed.log 
-<<<<<<< HEAD
-[1] "2021-12-01 11:50:08 UTC"
+[1] "2021-12-06 12:23:05 UTC"
 -/                                                                                                                                                                           File format identifier is: MetIDQ-Oxygen-DB110-3005 Concentration [µM] NoNormalization 
 -/                                                                                                                                                                           -/                                                                                                                                                                           Assay data for 87 samples and 524 traits read in 
-=======
-[1] "2021-12-05 12:49:21 UTC"
--/                                                                                                                      File format identifier is: MetIDQ-Oxygen-DB110-3005 Concentration [µM] NoNormalization 
--/                                                                                                                      -/                                                                                                                      Assay data for 87 samples and 524 traits read in 
->>>>>>> 6bb699b3b8981ab651f82787aecc845d03d2c4d0
 There are 20 parameters describing the samples:
- [1] "Plate Bar Code"         "Sample Bar Code"        "Sample Type"            "Sample Identification" 
- [5] "Sample Description"     "Submission Name"        "Collection Date"        "Species"               
- [9] "Material"               "OP"                     "Org. Info"              "Plate Production No."  
-[13] "Additional Information" "Tube label"             "Plate Note"             "Well Position"         
-[17] "Sample Volume"          "Run Number"             "Injection Number"       "Measurement Time"      
+ [1] "Plate Bar Code"         "Sample Bar Code"        "Sample Type"            "Sample Identification"  "Sample Description"     "Submission Name"       
+ [7] "Collection Date"        "Species"                "Material"               "OP"                     "Org. Info"              "Plate Production No."  
+[13] "Additional Information" "Tube label"             "Plate Note"             "Well Position"          "Sample Volume"          "Run Number"            
+[19] "Injection Number"       "Measurement Time"      
 There are 15 parameters describing the traits:
- [1] "feature_id"                          "Protocol"                            "Signal"                             
- [4] "Class"                               "Q1"                                  "Q3"                                 
- [7] "LOD (calc.) 1020890241/1 [µM]"       "Internal Standard"                   "RRF 1020890241-1"                   
-[10] "Curve Type 1020890241-1"             "Weighting Type 1020890241-1"         "ULOQ 1020890241-1 [µM]"             
+ [1] "feature_id"                          "Protocol"                            "Signal"                              "Class"                              
+ [5] "Q1"                                  "Q3"                                  "LOD (calc.) 1020890241/1 [µM]"       "Internal Standard"                  
+ [9] "RRF 1020890241-1"                    "Curve Type 1020890241-1"             "Weighting Type 1020890241-1"         "ULOQ 1020890241-1 [µM]"             
 [13] "LLOQ 1020890241-1 [µM]"              "OP 1020890241-1"                     "Analyte Classification 1020890241-1"
 Returnig only sample data
 Returning data for 524 traits and 60 samples
--/                                                                                                                      File format identifier is: MetIDQ-Oxygen-DB110-3005 Concentration [µM] NoNormalization 
--/                                                                                                                      -/                                                                                                                      Assay data for 194 samples and 106 traits read in 
+-/                                                                                                                                                                           File format identifier is: MetIDQ-Oxygen-DB110-3005 Concentration [µM] NoNormalization 
+-/                                                                                                                                                                           -/                                                                                                                                                                           Assay data for 194 samples and 106 traits read in 
 There are 20 parameters describing the samples:
- [1] "Plate Bar Code"         "Sample Bar Code"        "Sample Type"            "Sample Identification" 
- [5] "Sample Description"     "Submission Name"        "Collection Date"        "Species"               
- [9] "Material"               "OP"                     "Org. Info"              "Plate Production No."  
-[13] "Additional Information" "Tube label"             "Plate Note"             "Well Position"         
-[17] "Sample Volume"          "Run Number"             "Injection Number"       "Measurement Time"      
+ [1] "Plate Bar Code"         "Sample Bar Code"        "Sample Type"            "Sample Identification"  "Sample Description"     "Submission Name"       
+ [7] "Collection Date"        "Species"                "Material"               "OP"                     "Org. Info"              "Plate Production No."  
+[13] "Additional Information" "Tube label"             "Plate Note"             "Well Position"          "Sample Volume"          "Run Number"            
+[19] "Injection Number"       "Measurement Time"      
 There are 31 parameters describing the traits:
- [1] "feature_id"                                                
- [2] "Protocol"                                                  
- [3] "Signal"                                                    
- [4] "Class"                                                     
- [5] "Q1"                                                        
- [6] "Q3"                                                        
- [7] "LOD (calc.) 1020875591/1 [µM]"                             
- [8] "LOD (calc.) 1020875591/1[zero samples] [µM]"               
- [9] "LOD (calc.) 1020875591/1[Liver extract] [µM]"              
-[10] "LOD (calc.) 1020875591/1[Buffer] [µM]"                     
-[11] "LOD (calc.) 1020875591/1[methanol based zero samples] [µM]"
-[12] "LOD (calc.) 1020875591/2 [µM]"                             
-[13] "LOD (calc.) 1020875591/2[zero samples] [µM]"               
-[14] "LOD (calc.) 1020875591/2[Liver extract] [µM]"              
-[15] "LOD (calc.) 1020875591/2[Buffer] [µM]"                     
-[16] "LOD (calc.) 1020875591/2[methanol based zero samples] [µM]"
-[17] "Internal Standard"                                         
-[18] "RRF 1020875591-2"                                          
-[19] "RRF 1020875591-1"                                          
-[20] "Curve Type 1020875591-2"                                   
-[21] "Curve Type 1020875591-1"                                   
-[22] "Weighting Type 1020875591-2"                               
-[23] "Weighting Type 1020875591-1"                               
-[24] "ULOQ 1020875591-2 [µM]"                                    
-[25] "ULOQ 1020875591-1 [µM]"                                    
-[26] "LLOQ 1020875591-2 [µM]"                                    
-[27] "LLOQ 1020875591-1 [µM]"                                    
-[28] "OP 1020875591-2"                                           
-[29] "OP 1020875591-1"                                           
-[30] "Analyte Classification 1020875591-2"                       
+ [1] "feature_id"                                                 "Protocol"                                                  
+ [3] "Signal"                                                     "Class"                                                     
+ [5] "Q1"                                                         "Q3"                                                        
+ [7] "LOD (calc.) 1020875591/1 [µM]"                              "LOD (calc.) 1020875591/1[zero samples] [µM]"               
+ [9] "LOD (calc.) 1020875591/1[Liver extract] [µM]"               "LOD (calc.) 1020875591/1[Buffer] [µM]"                     
+[11] "LOD (calc.) 1020875591/1[methanol based zero samples] [µM]" "LOD (calc.) 1020875591/2 [µM]"                             
+[13] "LOD (calc.) 1020875591/2[zero samples] [µM]"                "LOD (calc.) 1020875591/2[Liver extract] [µM]"              
+[15] "LOD (calc.) 1020875591/2[Buffer] [µM]"                      "LOD (calc.) 1020875591/2[methanol based zero samples] [µM]"
+[17] "Internal Standard"                                          "RRF 1020875591-2"                                          
+[19] "RRF 1020875591-1"                                           "Curve Type 1020875591-2"                                   
+[21] "Curve Type 1020875591-1"                                    "Weighting Type 1020875591-2"                               
+[23] "Weighting Type 1020875591-1"                                "ULOQ 1020875591-2 [µM]"                                    
+[25] "ULOQ 1020875591-1 [µM]"                                     "LLOQ 1020875591-2 [µM]"                                    
+[27] "LLOQ 1020875591-1 [µM]"                                     "OP 1020875591-2"                                           
+[29] "OP 1020875591-1"                                            "Analyte Classification 1020875591-2"                       
 [31] "Analyte Classification 1020875591-1"                       
 Returnig only sample data
 Returning data for 106 traits and 120 samples
 WARNING: duplicated sample ids
- [1] "1020873061" "1020873105" "1020872212" "1020871320" "1020872178" "1020872299" "1020871285" "1020871164"
- [9] "1020873022" "1020873143" "1020872251" "1020872208" "1020871315" "1020871678" "1020873139" "1020871271"
-[17] "1020871150" "1020873094" "1020871630" "1020872246" "1020871111" "1020871232" "1020871198" "1020873056"
-[25] "1020872163" "1020872284" "1020871625" "1020871349" "1020871228" "1020872314" "1020871183" "1020873041"
-[33] "1020872270" "1020873080" "1020872159" "1020871663" "1020871301" "1020871266" "1020871145" "1020873124"
-[41] "1020872231" "1020872197" "1020871659" "1020872227" "1020873075" "1020871290" "1020872182" "1020871179"
-[49] "1020871334" "1020871213" "1020872300" "1020873037" "1020871131" "1020872265" "1020873110" "1020871251"
-[57] "1020871209" "1020871126" "1020871247" "1020871644"
+ [1] "1020873061" "1020873105" "1020872212" "1020871320" "1020872178" "1020872299" "1020871285" "1020871164" "1020873022" "1020873143" "1020872251" "1020872208" "1020871315"
+[14] "1020871678" "1020873139" "1020871271" "1020871150" "1020873094" "1020871630" "1020872246" "1020871111" "1020871232" "1020871198" "1020873056" "1020872163" "1020872284"
+[27] "1020871625" "1020871349" "1020871228" "1020872314" "1020871183" "1020873041" "1020872270" "1020873080" "1020872159" "1020871663" "1020871301" "1020871266" "1020871145"
+[40] "1020873124" "1020872231" "1020872197" "1020871659" "1020872227" "1020873075" "1020871290" "1020872182" "1020871179" "1020871334" "1020871213" "1020872300" "1020873037"
+[53] "1020871131" "1020872265" "1020873110" "1020871251" "1020871209" "1020871126" "1020871247" "1020871644"
 special treatment to use taurine from run 2
 merging two SE by row:
 D1:
@@ -131,7 +104,6 @@ deleting row variable that is only in D2: OP 1020875591-2
 deleting row variable that is only in D2: OP 1020875591-1 
 deleting row variable that is only in D2: Analyte Classification 1020875591-2 
 deleting row variable that is only in D2: Analyte Classification 1020875591-1 
-<<<<<<< HEAD
 -/                                                                                                                                                                           File format identifier is: MetIDQ-Oxygen-DB110-3005 Concentration [µM] NoNormalization 
 -/                                                                                                                                                                           -/                                                                                                                                                                           Assay data for 84 samples and 524 traits read in 
 There are 20 parameters describing the samples:
@@ -454,6 +426,4 @@ buffer matrix
   fat        12     48
   liver      12     48
   muscle     12     48
-2021-12-01 11:50:26 INFO:mt:missingness plots, missing values: 14853 out of 113400 (13.10%%)
-=======
->>>>>>> 6bb699b3b8981ab651f82787aecc845d03d2c4d0
+2021-12-06 12:23:24 INFO:mt:missingness plots, missing values: 14853 out of 113400 (13.10%%)

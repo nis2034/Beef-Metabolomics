@@ -19,7 +19,7 @@ source("read_beef_data.R")
 
 
 server <- function(input, output, session) {
- 
+  
   
   
   # observe({
@@ -30,63 +30,62 @@ server <- function(input, output, session) {
   #   cat("input$missingness ", input$missingness, "\n")
   #   cat("input$box_plot ", input$box_plot, "\n")
   #   cat("input$normalization ", input$normalization, "\n")
-    
-    
-    D <- read_beef_data()
-    D %<>% mt_plots_missingness(feat_max=0.5)
-   
+  
+  
+  D <- read_beef_data()
+  D %<>% mt_plots_missingness(feat_max=0.5)
+  
+  r <- metadata(D)$results
+  
+  missing1 <- r[[1]]$output[1]
+  missing_heatmap1 <- r[[1]]$output[2]
+  output$missingPlot1 <- renderPlot({
+    missing1
+  })
+  output$missing_heatmapPlot1 <- renderPlot({
+    missing_heatmap1
+  })
+  
+  reactive({
+    if(input$fil_buff_samples == TRUE){
+  test = "test proved"
+    D %<>% mt_remove_buffer() %>% mt_plots_missingness(feat_max=0.5)
     r <- metadata(D)$results
+    missing2 <- r[[2]]$output[1]
+    missing_heatmap2 <- r[[2]]$output[2]
+ 
     
-    missing1 <- r[[1]]$output[1]
-    missing_heatmap1 <- r[[1]]$output[2]
-    output$missingPlot1 <- renderPlot({
-      missing1
-    })
-    output$missing_heatmapPlot1 <- renderPlot({
-      missing_heatmap1
-    })
-    #filter_buff <- reactive(input$fil_buff_samples)
-    #reactive({
-      if(input$fil_buff_samples ){
-      D %<>% mt_remove_buffer() %>% mt_plots_missingness(feat_max=0.5)
-      missing2 <- r[[2]]$output[1]
-      missing_heatmap2 <- r[[2]]$output[2]
-    
-      output$missingPlot2 <- renderPlot({
+  
+  
+  } 
+  })
+  
+  
+  
+  output$conditionalBuffFilt1 <- renderUI({
+    if(input$fil_buff_samples == TRUE){
+      renderText(test)
+     
+    }
+  })
+  
+  output$conditionalBuffFilt2 <- renderUI({
+    if(input$fil_buff_samples == TRUE){
+      
+      renderPlot({
         missing2
-      })
-      output$missing_heatmapPlot2 <- renderPlot({
+      })  
+    }
+  })
+  output$conditionalBuffFilt3 <- renderUI({
+    if(input$fil_buff_samples == TRUE){
+      
+      renderPlot({
         missing_heatmap2
-      })
-    } 
-    
-   # }) 
-   
-    
-    output$filt_buff <- renderText({ input$fil_buff_samples })
-    output$conditionalBuffFilt1 <- renderUI({
-      if(input$fil_buff_samples){
-        renderText("Missigness after removing buffer")
-      }
-    })
-    
-    output$conditionalBuffFilt2 <- renderUI({
-      if(input$fil_buff_samples){
-        
-        renderPlot({
-          missingPlot2
-        })  
-      }
-    })
-    output$conditionalBuffFilt3 <- renderUI({
-      if(input$fil_buff_samples){
-        
-        renderPlot({
-          missing_heatmapPlot2
-        })  
-      }
-    })
-    
+      })  
+    }
+  })
+  
   # })
   observeEvent(input$sidebarItemExpanded, {
     if (input$sidebarItemExpanded == "Global Statistics") {
@@ -95,5 +94,3 @@ server <- function(input, output, session) {
     }
   })
 }
-
-
