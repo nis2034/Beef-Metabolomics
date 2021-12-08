@@ -46,47 +46,63 @@ server <- function(input, output, session) {
     missing_heatmap1
   })
   
-  reactive({
+  # output$conditional <- renderUI({
+  #   if(input$fil_buff_samples == TRUE){
+  #     renderText("Inside loop")
+  # test = "test proved"
+  # renderText(test)
+  #   D %<>% mt_remove_buffer() %>% mt_plots_missingness(feat_max=0.5)
+  #   r <- metadata(D)$results
+  #   missing2 <- r[[2]]$output[1]
+  #   missing_heatmap2 <- r[[2]]$output[2]
+  # 
+  #  
+  # 
+  # } 
+  # })
+  
+  conditional <- reactive({
     if(input$fil_buff_samples == TRUE){
-  test = "test proved"
-    D %<>% mt_remove_buffer() %>% mt_plots_missingness(feat_max=0.5)
-    r <- metadata(D)$results
-    missing2 <- r[[2]]$output[1]
-    missing_heatmap2 <- r[[2]]$output[2]
- 
-    
-  
-  
-  } 
+     
+      D %<>% mt_remove_buffer() %>% mt_plots_missingness(feat_max=0.5)
+      r <- metadata(D)$results
+      #missing2 <- r[[2]]$output[1]
+      #missing_heatmap2 <- r[[2]]$output[2]
+      
+      
+      
+    } 
   })
   
-  
-  
-  output$conditionalBuffFilt1 <- renderUI({
+  output$conditionalBuffFilt <- renderUI({
     if(input$fil_buff_samples == TRUE){
-      renderText(test)
+      renderText( "Missigness after removing buffer")
      
     }
   })
   
-  output$conditionalBuffFilt2 <- renderUI({
+  output$conditionalBuffFilt1 <- renderUI({
     if(input$fil_buff_samples == TRUE){
-      
-      renderPlot({
-        missing2
-      })  
+     r <- conditional()
+     missing2 <- r[[2]]$output[1]
+     renderPlot({
+       missing2
+     })  
     }
   })
-  output$conditionalBuffFilt3 <- renderUI({
+  
+  
+  output$conditionalBuffFilt2 <- renderUI({
     if(input$fil_buff_samples == TRUE){
-      
+      r <- conditional()
+      missing_heatmap2 <- r[[2]]$output[2]
       renderPlot({
         missing_heatmap2
       })  
     }
   })
-  
-  # })
+
+ 
   observeEvent(input$sidebarItemExpanded, {
     if (input$sidebarItemExpanded == "Global Statistics") {
       print("updating tab items")

@@ -31,9 +31,9 @@ ui <- dashboardPage(
           plotOutput("missingPlot1"),
           plotOutput("missing_heatmapPlot1"),
           #verbatimTextOutput("filter_buff"),
+          h3(uiOutput("conditionalBuffFilt")),
           uiOutput("conditionalBuffFilt1"),
-          uiOutput("conditionalBuffFilt2"),
-          uiOutput("conditionalBuffFilt3")
+          uiOutput("conditionalBuffFilt2")
           
         )
       ),

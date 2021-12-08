@@ -55,9 +55,13 @@ ui <- dashboardPage(
           
           
          
-          verbatimTextOutput("filter_buff")
+          verbatimTextOutput("filter_buff"),
          
-          
+          uiOutput("conditional1"),
+          h3(uiOutput("conditionalBuffFilt")),
+          uiOutput("conditional2"),
+          uiOutput("conditional3")
+         
         )
       ),
       tabItem(
@@ -99,19 +103,55 @@ server <- function(input, output) {
  
  # output$filter_buff <- reactive(input$fil_buff_samples)
  
+  f1 <-  reactive({ input$fil_buff_samples})
   
+ output$f2 <- renderText(f1)
+   #  if(f1 == TRUE){
+   # 
+   #  #output$filter_buff ="Checked"
+   # output$filter_buff <- renderText("Inside loop")
+   #  } 
+
+ test1 =""
+ test2 =""
+ conditional <- reactive({
+   if(input$fil_buff_samples == TRUE){
+     test1 <- "test proved"
+     
+     test2 <- "test proved for second var"
+    
+    
+   }
+ })
   
-  observeEvent(input$fil_buff_samples, { 
-    if(input$fil_buff_samples == TRUE){
-   
-    output$filter_buff ="Checked"
-    } 
-  })
-  
-  
-  
-  
+
  
+ output$conditional1 <- renderUI({
+   if(input$fil_buff_samples == TRUE){
+     renderText(conditional())
+     
+   }
+ })
+ 
+ output$conditionalBuffFilt <- renderUI({
+   if(input$fil_buff_samples == TRUE){
+     renderText(HTML(paste0("<b>","Missigness after removing buffer", "</b>")))
+     
+   }
+ })
+  output$conditional2 <- renderUI({
+  if(input$fil_buff_samples == TRUE){
+      renderText(test1)
+      
+    }
+  })
+ 
+  output$conditional3 <- renderUI({
+    if(input$fil_buff_samples == TRUE){
+      renderText(test2)
+      
+    }
+  })
   # })
   observeEvent(input$sidebarItemExpanded, {
     if (input$sidebarItemExpanded == "Global Statistics") {
