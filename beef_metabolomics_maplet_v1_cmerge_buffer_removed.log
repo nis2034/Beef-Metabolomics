@@ -1,5 +1,5 @@
 Start logging to beef_metabolomics_maplet_v1_cmerge_buffer_removed.log 
-[1] "2021-12-05 12:49:21 UTC"
+[1] "2021-12-06 04:57:56 UTC"
 -/                                                                                                                      File format identifier is: MetIDQ-Oxygen-DB110-3005 Concentration [µM] NoNormalization 
 -/                                                                                                                      -/                                                                                                                      Assay data for 87 samples and 524 traits read in 
 There are 20 parameters describing the samples:
@@ -125,3 +125,17 @@ deleting row variable that is only in D2: OP 1020875591-2
 deleting row variable that is only in D2: OP 1020875591-1 
 deleting row variable that is only in D2: Analyte Classification 1020875591-2 
 deleting row variable that is only in D2: Analyte Classification 1020875591-1 
+-/                                                                                                                      File format identifier is: MetIDQ-Oxygen-DB110-3005 Concentration [µM] NoNormalization 
+-/                                                                                                                      -/                                                                                                                      Assay data for 84 samples and 524 traits read in 
+There are 20 parameters describing the samples:
+ [1] "Plate Bar Code"         "Sample Bar Code"        "Sample Type"            "Sample Identification" 
+ [5] "Sample Description"     "Submission Name"        "Collection Date"        "Species"               
+ [9] "Material"               "OP"                     "Org. Info"              "Plate Production No."  
+[13] "Additional Information" "Tube label"             "Plate Note"             "Well Position"         
+[17] "Sample Volume"          "Run Number"             "Injection Number"       "Measurement Time"      
+There are 15 parameters describing the traits:
+ [1] "feature_id"                          "Protocol"                            "Signal"                             
+ [4] "Class"                               "Q1"                                  "Q3"                                 
+ [7] "LOD (calc.) 1020875641/3 [µM]"       "Internal Standard"                   "RRF 1020875641-3"                   
+[10] "Curve Type 1020875641-3"             "Weighting Type 1020875641-3"         "ULOQ 1020875641-3 [µM]"             
+[13] "LLOQ 1020875641-3 [µM]"              "OP 1020875641-3"                     "Analyte Classification 1020875641-3"
