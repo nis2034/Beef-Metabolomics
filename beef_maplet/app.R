@@ -21,7 +21,7 @@ library("shinydashboard")
 # source prototype functions (should appear in Maplet one day)
 
 #setwd("/home/rstudio/home/autonomics/nis2034/beef\ metabolomics")
-setwd("/home/rstudio/host/beef_data")
+#setwd("/home/rstudio/host/beef_data")
 rm(list=ls())
 
 ui <- dashboardPage(
@@ -38,6 +38,9 @@ ui <- dashboardPage(
                tabName = "global_statistics",
                menuSubItem("Sub Menu Item 1", tabName = "sub_1"),
                menuSubItem("Sub Menu Item 2", tabName = "sub_2")),
+      menuItem("Data Analysis Pipeline",
+               tabName = "analysis_pipeline"
+               ),
       menuItem("Statistical Results Presentation",
                tabName = "global_statistics",
                menuSubItem("Sub Menu Item 1", tabName = "sub_1"),
@@ -67,7 +70,43 @@ ui <- dashboardPage(
       tabItem(
         tabName = "box_plot",
         fluidRow(
-          h1("box_plot 2")
+          h1("Sample Box Plot "),
+          selectInput("color", "Select the color variable: ",c("Buffer"="buff", "tissue" = "tiss"),selected = NULL,multiple = FALSE,
+                      selectize = TRUE,width = '200px',size = NULL),
+          
+          verbatimTextOutput("col")
+        )
+      ),
+      tabItem(
+        tabName = "analysis_pipeline",
+        fluidRow( 
+          h1("Data Analysis Pipeline "),
+          
+          radioButtons("fil_buff_samples_pip", "Do you want to filter out buffer samples:",
+                             c("Yes" = "yes",
+                               "No" = "no")),style = "margin-left: 5px;",
+          
+          textInput("filt_perc", "Enter the % of missingness for pre-filter: ", value = 0.5, width = '250px', placeholder = NULL),
+          
+          selectInput("norm", "Normalization: ",c("Quotient Normalization"="quot", "External Sample Annotation" = "external"),selected = NULL,multiple = FALSE,
+                      selectize = TRUE,width = '200px',size = NULL),
+          
+            conditionalPanel(
+              condition = "input.norm == 'quot'",
+              selectInput("ref_samples", "Reference Sample:",
+                        c("80% Meth + 20% H2O"="comb1", "80% Meth + 20% PBS" = "comb2","50% Meth + 50% H2O" = "comb3","50% Meth + 50% PBS" ="comb4"),selected = NULL,multiple = FALSE,
+                        selectize = TRUE,width = '200px',size = NULL)),
+          
+          
+            conditionalPanel(
+              condition = "input.norm == 'external'",
+              selectInput("col_name", "Numeric-value column:",
+                        c("Buffer"="col1", "tissue" = "col2"),selected = NULL,multiple = FALSE,
+                        selectize = TRUE,width = '200px',size = NULL)),
+      
+          
+          
+          verbatimTextOutput("col")
         )
       ),
       tabItem(
@@ -152,6 +191,18 @@ server <- function(input, output) {
       
     }
   })
+  
+  f2 <-  reactive({ input$color})
+  output$col <- renderUI({
+  renderPrint(f2)})
+  
+  output$col <- reactive({
+    if(input$color == "buff")
+      "Buffer"
+    else
+      "tissue"
+  })
+  
   # })
   observeEvent(input$sidebarItemExpanded, {
     if (input$sidebarItemExpanded == "Global Statistics") {

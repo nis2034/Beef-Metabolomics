@@ -39,9 +39,13 @@ ui <- dashboardPage(
       ),
       tabItem(
         tabName = "box_plot",
-        fluidRow(
-          h1("box_plot 2")
-        )
+          fluidRow(
+            h1("Sample Box Plot "),
+            selectInput("color", "Select the color variable: ",c("Buffer"="buff", "tissue" = "tiss"),selected = NULL,multiple = FALSE,
+                        selectize = TRUE,width = '200px',size = NULL),
+            
+            uiOutput("box_plot")
+          )
       ),
       tabItem(
         tabName = "sub_1",
