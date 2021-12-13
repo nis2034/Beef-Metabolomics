@@ -40,7 +40,7 @@ ui <- dashboardPage(
                menuSubItem("Sub Menu Item 2", tabName = "sub_2")),
       menuItem("Data Analysis Pipeline",
                tabName = "analysis_pipeline"
-               ),
+      ),
       menuItem("Statistical Results Presentation",
                tabName = "global_statistics",
                menuSubItem("Sub Menu Item 1", tabName = "sub_1"),
@@ -57,14 +57,14 @@ ui <- dashboardPage(
           h3("Missigness before removing buffer"),
           
           
-         
+          
           verbatimTextOutput("filter_buff"),
-         
+          
           uiOutput("conditional1"),
           h3(uiOutput("conditionalBuffFilt")),
           uiOutput("conditional2"),
           uiOutput("conditional3")
-         
+          
         )
       ),
       tabItem(
@@ -80,33 +80,26 @@ ui <- dashboardPage(
       tabItem(
         tabName = "analysis_pipeline",
         fluidRow( 
+          
           h1("Data Analysis Pipeline "),
           
           radioButtons("fil_buff_samples_pip", "Do you want to filter out buffer samples:",
-                             c("Yes" = "yes",
-                               "No" = "no")),style = "margin-left: 5px;",
+                       c("Yes" = "yes",
+                         "No" = "no")),style = "margin-left: 5px;",
+          
           
           textInput("filt_perc", "Enter the % of missingness for pre-filter: ", value = 0.5, width = '250px', placeholder = NULL),
           
-          selectInput("norm", "Normalization: ",c("Quotient Normalization"="quot", "External Sample Annotation" = "external"),selected = NULL,multiple = FALSE,
+         
+          selectInput("norm", "Normalization: ",c("NA" = "na", "Quotient Normalization"="quot", "External Sample Annotation" = "external"),selected = NULL,multiple = FALSE,
+                      selectize = TRUE,width = '200px',size = NULL),
+          uiOutput("norm_sub"),
+          
+          selectInput("trans", "Data Transformation: ",c("NA" = "na", "log2"="log2", "Exponentiate" = "exp", "Sample Relative" = "rel", "Scale data" = "scale"),selected = NULL,multiple = FALSE,
                       selectize = TRUE,width = '200px',size = NULL),
           
-            conditionalPanel(
-              condition = "input.norm == 'quot'",
-              selectInput("ref_samples", "Reference Sample:",
-                        c("80% Meth + 20% H2O"="comb1", "80% Meth + 20% PBS" = "comb2","50% Meth + 50% H2O" = "comb3","50% Meth + 50% PBS" ="comb4"),selected = NULL,multiple = FALSE,
-                        selectize = TRUE,width = '200px',size = NULL)),
-          
-          
-            conditionalPanel(
-              condition = "input.norm == 'external'",
-              selectInput("col_name", "Numeric-value column:",
-                        c("Buffer"="col1", "tissue" = "col2"),selected = NULL,multiple = FALSE,
-                        selectize = TRUE,width = '200px',size = NULL)),
-      
-          
-          
-          verbatimTextOutput("col")
+          selectInput("impute", "Impute Data Using: ",c("NA" = "na", "knn"="knn", "Minimum value" = "min"),selected = NULL,multiple = FALSE,
+                      selectize = TRUE,width = '200px',size = NULL)
         )
       ),
       tabItem(
@@ -128,63 +121,47 @@ ui <- dashboardPage(
 server <- function(input, output) {
   
   check_filtr <- FALSE 
-  
-  # observe({
-  #   cat("input$main_menu_items ", input$main_menu_items, "\n")
-  #   cat("input$data_cleanup ", input$data_cleanup, "\n")
-  #   cat("input$global_statistics ", input$global_statistics, "\n")
-  #   cat("input$statistical_results_presentation ", input$statistical_results_presentation, "\n")
-  #   cat("input$missingness ", input$missingness, "\n")
-  #   cat("input$box_plot ", input$box_plot, "\n")
-  #   cat("input$normalization ", input$normalization, "\n")
-  
 
- 
- # output$filter_buff <- reactive(input$fil_buff_samples)
- 
+  
   f1 <-  reactive({ input$fil_buff_samples})
   
- output$f2 <- renderText(f1)
-   #  if(f1 == TRUE){
-   # 
-   #  #output$filter_buff ="Checked"
-   # output$filter_buff <- renderText("Inside loop")
-   #  } 
+  output$f2 <- renderText(f1)
 
- test1 =""
- test2 =""
- conditional <- reactive({
-   if(input$fil_buff_samples == TRUE){
-     test1 <- "test proved"
-     
-     test2 <- "test proved for second var"
-    
-    
-   }
- })
   
-
- 
- output$conditional1 <- renderUI({
-   if(input$fil_buff_samples == TRUE){
-     renderText(conditional())
-     
-   }
- })
- 
- output$conditionalBuffFilt <- renderUI({
-   if(input$fil_buff_samples == TRUE){
-     renderText(HTML(paste0("<b>","Missigness after removing buffer", "</b>")))
-     
-   }
- })
+  test1 =""
+  test2 =""
+  conditional <- reactive({
+    if(input$fil_buff_samples == TRUE){
+      test1 <- "test proved"
+      
+      test2 <- "test proved for second var"
+      
+      
+    }
+  })
+  
+  
+  
+  output$conditional1 <- renderUI({
+    if(input$fil_buff_samples == TRUE){
+      renderText(conditional())
+      
+    }
+  })
+  
+  output$conditionalBuffFilt <- renderUI({
+    if(input$fil_buff_samples == TRUE){
+      renderText(HTML(paste0("<b>","Missigness after removing buffer", "</b>")))
+      
+    }
+  })
   output$conditional2 <- renderUI({
-  if(input$fil_buff_samples == TRUE){
+    if(input$fil_buff_samples == TRUE){
       renderText(test1)
       
     }
   })
- 
+  
   output$conditional3 <- renderUI({
     if(input$fil_buff_samples == TRUE){
       renderText(test2)
@@ -194,7 +171,7 @@ server <- function(input, output) {
   
   f2 <-  reactive({ input$color})
   output$col <- renderUI({
-  renderPrint(f2)})
+    renderPrint(f2)})
   
   output$col <- reactive({
     if(input$color == "buff")
@@ -203,7 +180,41 @@ server <- function(input, output) {
       "tissue"
   })
   
+  # output$quot < -reactive({
+  #   input$norm == "quot"
   # })
+  # 
+  # output$external < -reactive({
+  #   input$norm == "external"
+  # })
+  # 
+  # })
+  
+  
+  output$norm_sub1 <- renderUI({
+    selectInput("ref_samples", "Reference Sample:",
+                c("80% Meth + 20% H2O"="comb1", "80% Meth + 20% PBS" = "comb2","50% Meth + 50% H2O" = "comb3","50% Meth + 50% PBS" ="comb4"),selected = NULL,multiple = FALSE,
+                selectize = TRUE,width = '200px',size = NULL)
+    
+  })
+  
+
+  
+  output$norm_sub <- renderUI({
+    if(input$norm == "quot") 
+    {
+      selectInput("ref_samples", "Reference Sample:",
+                  c("80% Meth + 20% H2O"="comb1", "80% Meth + 20% PBS" = "comb2","50% Meth + 50% H2O" = "comb3","50% Meth + 50% PBS" ="comb4"),selected = NULL,multiple = FALSE,
+                  selectize = TRUE,width = '200px',size = NULL)
+      
+    } else if (input$norm == "external") 
+      
+    { selectInput("col_name", "Numeric-value column:",
+                  c("Buffer"="col1", "tissue" = "col2"),selected = NULL,multiple = FALSE,
+                  selectize = TRUE,width = '200px',size = NULL)
+    }
+  })
+  
   observeEvent(input$sidebarItemExpanded, {
     if (input$sidebarItemExpanded == "Global Statistics") {
       print("updating tab items")

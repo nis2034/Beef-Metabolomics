@@ -87,7 +87,59 @@ server <- function(input, output, session) {
       })  
     
   })
- 
+  
+  
+  ####### Normalization ##########
+  
+
+  
+  norm_menu <- reactive({
+    if(input$norm_tab == "quot"){
+      ref = input$norm_tab
+      ref_sam = paste0("Buffer ==", ref)
+      D %<>% mt_remove_buffer() %>% mt_pre_norm_quot(feat_max = 0.2, ref_samples = Buffer=="80% Meth + 20% H2O") %>%
+       
+        mt_plots_dilution_factor(in_col="Buffer") %>% mt_plots_sample_boxplot(color=Buffer, title = "After probabilistic quotient normalization", plot_logged = T)
+        r <- metadata(D)$results
+      
+    } 
+    else
+    {
+      D %<>% mt_remove_buffer() %>% mt_pre_norm_external(col_name='Buffer') %>%
+        
+        mt_plots_dilution_factor(in_col="Buffer") %>% mt_plots_sample_boxplot(color=Buffer, title = "After probabilistic quotient normalization", plot_logged = T)
+      r <- metadata(D)$results
+    }
+  })
+  
+  output$box_plot <- renderUI({
+    
+    r <- box()
+    box_p <- r[[2]]$output[1]
+    renderPlot({
+      box_p
+    })  
+    
+  })
+  
+  
+  ######## Data Analysis Pipeline ####################
+  output$norm_sub <- renderUI({
+    if(input$norm == "quot") 
+    {
+      selectInput("ref_samples", "Reference Sample:",
+                  c("80% Meth + 20% H2O"="comb1", "80% Meth + 20% PBS" = "comb2","50% Meth + 50% H2O" = "comb3","50% Meth + 50% PBS" ="comb4"),selected = NULL,multiple = FALSE,
+                  selectize = TRUE,width = '200px',size = NULL)
+      
+    } else if (input$norm == "external") 
+      
+    { selectInput("col_name", "Numeric-value column:",
+                  c("Buffer"="col1", "tissue" = "col2"),selected = NULL,multiple = FALSE,
+                  selectize = TRUE,width = '200px',size = NULL)
+    }
+  })
+  
+  
  
   observeEvent(input$sidebarItemExpanded, {
     if (input$sidebarItemExpanded == "Global Statistics") {
