@@ -54,8 +54,10 @@ ui <- dashboardPage(
         fluidRow( 
           
           h1(" Data Normalization "),
-          selectInput("norm_tab", "Normalization: ",c("NA" = "na", "Quotient Normalization"="quot", "External Sample Annotation" = "external"),selected = NULL,multiple = FALSE,
-                      selectize = TRUE,width = '200px',size = NULL)
+          selectInput("norm_1", "Normalization: ",c("NA" = "na", "Quotient Normalization"="quot", "External Sample Annotation" = "external"),selected = NULL,multiple = FALSE,
+                      selectize = TRUE,width = '200px',size = NULL),
+          uiOutput("norm_sub_menu_1")
+          
          
         )
       ),

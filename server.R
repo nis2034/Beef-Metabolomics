@@ -89,30 +89,57 @@ server <- function(input, output, session) {
   })
   
   
-  ####### Normalization ##########
   
-
+ ############## Normalization ########################
   
-  norm_menu <- reactive({
-    if(input$norm_tab == "quot"){
-      ref = input$norm_tab
-      ref_sam = paste0("Buffer ==", ref)
-      D %<>% mt_remove_buffer() %>% mt_pre_norm_quot(feat_max = 0.2, ref_samples = Buffer=="80% Meth + 20% H2O") %>%
-       
-        mt_plots_dilution_factor(in_col="Buffer") %>% mt_plots_sample_boxplot(color=Buffer, title = "After probabilistic quotient normalization", plot_logged = T)
-        r <- metadata(D)$results
+  norm_logic_1 <- reactive({
+    if(input$norm_1 == "quot"){
+      ref_sam_1 = dQuote(input$ref_samples_1)
+      feat_max = input$feat_max_1
       
-    } 
-    else
-    {
-      D %<>% mt_remove_buffer() %>% mt_pre_norm_external(col_name='Buffer') %>%
-        
-        mt_plots_dilution_factor(in_col="Buffer") %>% mt_plots_sample_boxplot(color=Buffer, title = "After probabilistic quotient normalization", plot_logged = T)
+      D %<>% mt_remove_buffer() %>% mt_pre_norm_quot(feat_max = feat_max, ref_samples = Buffer==ref_sam_1) %>%
+      mt_plots_dilution_factor(in_col="Buffer") %>% mt_plots_sample_boxplot(color=Buffer, title = "After probabilistic quotient normalization", plot_logged = T)
       r <- metadata(D)$results
+        
+    } 
+    # else
+    # {
+    #   D %<>% mt_remove_buffer() %>% mt_pre_norm_external(col_name='Buffer') %>%
+    #     
+    #     mt_plots_dilution_factor(in_col="Buffer") %>% mt_plots_sample_boxplot(color=Buffer, title = "After probabilistic quotient normalization", plot_logged = T)
+    #   r <- metadata(D)$results
+    # }
+  })
+  
+  output$norm_sub_menu_1 <- renderUI({
+    if(input$norm_1 == "quot") 
+    {
+      r <- norm_logic_1()
+      box_p_norm1 <- r[[1]]$output[1]
+      tagList(
+        selectInput("ref_samples_1", "Reference Sample:",
+                    c("80% Meth + 20% H2O", "80% Meth + 20% PBS" ,"50% Meth + 50% H2O","50% Meth + 50% PBS"),selected = NULL,multiple = FALSE,
+                    selectize = TRUE,width = '200px',size = NULL),
+        textInput("feat_max_1", "Feature Maximum ", value = 0.2, width = '100px', placeholder = NULL),
+        renderPlot({
+          box_p_norm1
+        })  
+        
+       
+        
+        
+      )
+    } else if (input$norm_1 == "external") 
+      
+    { selectInput("col_name_1", "Numeric-value column:",
+                  c("Buffer"="col1", "tissue" = "col2"),selected = NULL,multiple = FALSE,
+                  selectize = TRUE,width = '200px',size = NULL)
     }
   })
   
-  output$box_plot <- renderUI({
+  
+  
+  output$box_plot_norm <- renderUI({
     
     r <- box()
     box_p <- r[[2]]$output[1]
@@ -121,8 +148,6 @@ server <- function(input, output, session) {
     })  
     
   })
-  
-  
   ######## Data Analysis Pipeline ####################
   output$norm_sub <- renderUI({
     if(input$norm == "quot") 

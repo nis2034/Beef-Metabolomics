@@ -78,6 +78,18 @@ ui <- dashboardPage(
         )
       ),
       tabItem(
+        tabName = "normalization",
+        fluidRow( 
+          #numericInput("feat_max_1", label = "Feature Maximum ", value = 0.2, width = '100px'),
+          h1(" Data Normalization "),
+          selectInput("norm_1", "Normalization: ",c("NA" = "na", "Quotient Normalization"="quot", "External Sample Annotation" = "external"),selected = NULL,multiple = FALSE,
+                      selectize = TRUE,width = '200px',size = NULL),
+          uiOutput("norm_sub_menu_1")
+          
+          
+        )
+      ),
+      tabItem(
         tabName = "analysis_pipeline",
         fluidRow( 
           
@@ -189,7 +201,7 @@ server <- function(input, output) {
   # })
   # 
   # })
-  
+  ##### Data analysis pipelline ########
   
   output$norm_sub1 <- renderUI({
     selectInput("ref_samples", "Reference Sample:",
@@ -215,6 +227,61 @@ server <- function(input, output) {
     }
   })
   
+  ############## Normalization ########################
+  norm_logic_1 <- reactive({
+    if(input$norm_1 == "quot"){
+      ref_1 = dQuote(input$ref_samples_1)
+      ref_sam_1 = paste0("Buffer ==", ref_1)
+      feat_max = input$feat_max_1
+      #D %<>% mt_remove_buffer() %>% mt_pre_norm_quot(feat_max = 0.2, ref_samples = Buffer=="80% Meth + 20% H2O") %>%
+      #   
+      #   mt_plots_dilution_factor(in_col="Buffer") %>% mt_plots_sample_boxplot(color=Buffer, title = "After probabilistic quotient normalization", plot_logged = T)
+      # r <- metadata(D)$results
+      
+    } 
+    # else
+    # {
+    #   D %<>% mt_remove_buffer() %>% mt_pre_norm_external(col_name='Buffer') %>%
+    #     
+    #     mt_plots_dilution_factor(in_col="Buffer") %>% mt_plots_sample_boxplot(color=Buffer, title = "After probabilistic quotient normalization", plot_logged = T)
+    #   r <- metadata(D)$results
+    # }
+  })
+ 
+  output$norm_sub_menu_1 <- renderUI({
+    if(input$norm_1 == "quot") 
+    {
+      feat_max <- norm_logic_1()
+      tagList(
+        # current issue is the components below are not changing in the window.
+        selectInput("ref_samples_1", "Reference Sample:",
+                    c("80% Meth + 20% H2O", "80% Meth + 20% PBS" ,"50% Meth + 50% H2O","50% Meth + 50% PBS"),selected = NULL,multiple = FALSE,
+                    selectize = TRUE,width = '200px',size = NULL),
+        numericInput("feat_max_1", label = "Feature Maximum ", value = 0.2, width = '100px'),
+        hr(),
+        textInput("ref_sam_1","Feature Maximum ", value = feat_max)
+     
+   
+      )
+    } else if (input$norm_1 == "external") 
+      
+    { selectInput("col_name_1", "Numeric-value column:",
+                  c("Buffer"="col1", "tissue" = "col2"),selected = NULL,multiple = FALSE,
+                  selectize = TRUE,width = '200px',size = NULL)
+    }
+  })
+  
+  
+  
+  output$box_plot <- renderUI({
+    
+    r <- box()
+    box_p <- r[[2]]$output[1]
+    renderPlot({
+      box_p
+    })  
+    
+  })
   observeEvent(input$sidebarItemExpanded, {
     if (input$sidebarItemExpanded == "Global Statistics") {
       print("updating tab items")
